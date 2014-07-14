@@ -1,3 +1,3 @@
 class Referee < ActiveRecord::Base
-  belongs_to :nationality
+  belongs_to :contry
 end

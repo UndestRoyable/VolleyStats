@@ -4,7 +4,7 @@ class CreateCoaches < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.references :nationality, index: true
+      t.references :country, index: true
 
       t.timestamps
     end

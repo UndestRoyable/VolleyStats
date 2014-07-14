@@ -3,7 +3,7 @@ class CreateReferees < ActiveRecord::Migration
     create_table :referees do |t|
       t.string :first_name
       t.string :last_name
-      t.references :nationality, index: true
+      t.references :country, index: true
 
       t.timestamps
     end
