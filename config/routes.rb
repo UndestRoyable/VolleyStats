@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
+  devise_for :scouts, :controller => {:session => 'session'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  #root 'controller#method'
+  #match "url" => "controller#method", via: [:get, :post]
+  #get "url" => "controller#method"
+  #post "url" => "controller#method"
+
+  devise_scope :scout do
+    get 'login' => "session#login", :as => "login"
+    post 'create' => 'session#create', :as => 'create'
+    post 'logout' => 'session#destroy', :as => 'logout'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
