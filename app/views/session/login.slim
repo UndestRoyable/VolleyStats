@@ -1,7 +1,13 @@
-|LOGIN PAGE
-|Button redirect to /create
+-stylesheet "signin"
 
-div
-  =params
-div
-  =current_scout
+
+.container
+  form.form-signin role="form" 
+    h2.form-signin-heading Вход в системата
+    input.form-control autofocus="" placeholder=("Имейл адрес") required="" type="email" 
+      input.form-control placeholder="Парола" required="" type="password" 
+        .checkbox
+          label
+            input type="checkbox" value="remember-me" 
+              | Запомни ме
+        button.btn.btn-lg.btn-primary.btn-block type="submit"  Sign in

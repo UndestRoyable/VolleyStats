@@ -1,0 +1,42 @@
+-stylesheet "contact-style"
+-javascript "contact"
+
+.well.well-sm style="text-align:center" 
+  h3 Свържете се с нас!
+.container.col-md-8
+  form.myfirstform role="form" 
+    
+       
+    .form-group
+      label.control-label Име и фамилия
+      .controls
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-user
+          input.form-control name="name" placeholder="Име" type="text" 
+    .form-group
+      label.control-label Имейл
+      .controls
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-envelope
+          input#email.form-control name="email" placeholder=("Имейл адрес") type="text" 
+    .form-group
+      label.control-label Категория
+      .controls
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-list
+          select.form-control.selectpicker.show-tick name="cate" 
+            option Въпрос
+            option Препоръка
+    .form-group
+      label.control-label Вашето съобщение
+      .controls
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-pencil
+          textarea.form-control cols="78" name="msg" placeholder=("Въведете вашето съобщение тук") rows="4" 
+    .controls style=("margin-left: 80%;") 
+      button#mybtn.btn.btn-primary type="submit"  Изпрати съобщението
+ 

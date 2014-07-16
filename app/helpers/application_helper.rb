@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def stylesheet(name, options = {})
     content_for :stylesheets do
-      javascript_include_tag name, options
+      stylesheet_link_tag name, options
     end
   end
 end

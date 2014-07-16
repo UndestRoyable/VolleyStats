@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'main#index'
+  get "/index" =>"main#index"
+
+  get '/about-us' =>"main#about"
+
+  get '/contact-us' =>"main#contact"
+
   devise_for :scouts, :controller => {:session => 'session'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
