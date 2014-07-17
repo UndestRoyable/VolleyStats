@@ -53,7 +53,7 @@
 		<div class = "container">
 			
 			<div class = "jumbotron">
-				<div class = "team">
+				<div class = "left team">
 				<h2>Отбор домакин:</h2>
 					<div class="dropdown">
 		  					
@@ -71,7 +71,7 @@
 			<div class="team" id="vs">
 			<h2>VS.</h2>
 			</div>
-			<div id="guest" class = "team">
+			<div class = "right team">
 				<h2>Гостуващ отбор:</h2>
 						<div class="dropdown">
 		  					
@@ -89,20 +89,22 @@
 
 			<div id="hall">
 			<h2>Зала:</h2>
+			<div class = "d_container">
 				<div class="dropdown">
 		  					
-		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
-		    				Изберете зала
-		    				<span class="caret"></span>
-		  							</button>
-		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-							    
-		    
-		  										</ul>
+			  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+			    				Изберете зала
+			    				<span class="caret"></span>
+			  							</button>
+			  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								    
+			    
+			  										</ul>
+								</div>
 
 			</div><!--end of div id hall-->
 			</div>
-			<div id="time" class="datetime">
+			<div class="left datetime" id = "time">
 				<h2>Час:</h2>
 					<div class="time">
 					<div class="dropdown">
@@ -133,7 +135,7 @@
 
 		  	</div><!---end of div id time-->
 
-		  	<div class="datetime" id="date">
+		  	<div class="right datetime" id = "date">
 		  	<h2>Дата:</h2>
 		  	<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
   			<input class="span2" size="16" type="text" value="12-02-2012">
@@ -173,7 +175,7 @@
 
 		  	
 		  		<div id="players" >
-		  			<div class="players" >
+		  			<div class="left players" >
 		  			<h2>от руби - име на отбора</h2>
 		  			<table>
 		  			<thead>
@@ -192,7 +194,7 @@
 		  			</tr>	
 		  			</table>
 		  			</div>
-		  			<div class="players" id="guest-players">
+		  			<div class="right players">
 
 		  			<h2>от руби - име на отбора</h2>
 		  			<table>
