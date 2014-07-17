@@ -19,7 +19,7 @@ float:right;
 
 
 #hall{
-	margin-top:40px;
+	margin-top:5%;
 	margin-left:45%;
 	width:10%;	
 
@@ -44,13 +44,24 @@ float:right;
 	margin-right: 10%;
 }
 .referees h2{
-	margin-top: 45px;
+	margin-top: 6%;
 	margin-left: 35%;
 }
 .referees .dropdown{
 	display: inline-block;
 	margin-left: 22.5%;
 }
+
+.scout h2{
+	margin-top: 7%;
+	margin-left: 35%;
+}
+
+.scout .dropdown{
+	display: inline-block;
+	margin-left: 40%;
+}
+
 .players{
 	width: 40%;
 
@@ -60,5 +71,14 @@ float:right;
 }
 
 .players{
-	margin-top: 30px;
+	margin-top: 5%;
 }
+
+#button{
+	margin-left:35%;
+	margin-top:5%;
+}
+
+
+
+
