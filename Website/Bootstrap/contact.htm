@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>VolleyStats</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href ="css/bootstrap.min.css" rel = "stylesheet">
+		<link rel="stylesheet" type="text/css" href="contact-style.css">
+
+
+
+		<script type="text/javascript">
+
+$(document).ready(function(){
+ $.validator.setDefaults({
+submitHandler: function(form) {
+    $.ajax({
+		  type: "POST",
+		  url: "email.php",
+		  data: { 'val':$(".myfirstform").serializeJSON() }
+		}).done(function(data) {
+		alert(data);
+		   
+		});
+  }
+
+});
+$(".myfirstform").validate(
+{rules:
+{name:"required",
+email:{required:true,email:true},
+website:{required:false,url:true},
+cate:"required",
+msg:{required:true, maxlength:300
+}},
+errorClass:"error",
+highlight: function(label) {
+    $(label).closest('.form-group').removeClass('has-success').addClass('has-error');
+  },
+
+success: function(label) {
+    label
+      .text('Seems Perfect!').addClass('valid')
+	  .closest('.form-group').addClass('has-success');
+      
+  }
+}
+  
+);
+
+});
+
+</script>
+
+ <script type="text/javascript">
+        $(window).on('load', function () {
+
+            $('.selectpicker').selectpicker({
+                'selectedText': 'cat'
+            });
+
+            // $('.selectpicker').selectpicker('hide');
+        });
+
+</script>
+
+
+
+
+	</head>
+
+	<body>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+
+		<div class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+
+				<a href = "index.htm" class = "navbar-brand">VolleyStats</a>
+
+				<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class  = "nav navbar-nav navbar-right">
+						<li><a href = "index.htm"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href = "about-us.htm"><span class="glyphicon glyphicon-info-sign"></span> За нас</a></li>
+					
+
+						<li class = "dropdown">
+							
+							<a href="#" class="dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-stats"></span> Статистики <b class = "caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href = "#">На отбор</a></li>
+								<li><a href = "#">На играч</a></li>
+								<li><a href = "#">За период от време</a></li>
+								</ul>
+						</li>
+						
+						<li><a href = "login.htm"><span class="glyphicon glyphicon-user"></span> Вход</a></li>
+						<li><a href = "#"><span class="glyphicon glyphicon-list-alt"></span> Води статистика</a></li>
+						<li class = "active"><a href = "#"><span class="glyphicon glyphicon-phone-alt"></span>  За контакти</a></li>
+
+
+						
+					</ul>
+				</div>
+
+			</div>
+		</div> <!--end of navbar-->
+
+	
+
+
+
+<div class="well well-sm" style="text-align:center">
+	<h3> Свържете се с нас!</h3>
+</div>
+<div class="container col-md-8">
+<form class="myfirstform" role="form">
+	<!--  
+		<legend>Contact Form</legend>		-->
+		<div class="form-group">
+	        <label class="control-label">Име и фамилия</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" name="name" placeholder="Име">
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="form-group">
+	        <label class="control-label">Имейл</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input type="text" class="form-control" id="email" name="email" placeholder="Имейл адрес">
+				</div>
+			</div>	
+		</div>
+		
+		
+		
+		<div class="form-group ">
+	        <label class="control-label">Категория</label>
+			<div class="controls">
+		 <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+					<select name="cate" class="form-control selectpicker  show-tick" > 
+					<option> Въпрос</option>
+					<option> Препоръка</option>
+					</select>
+					
+				</div>
+				</div>
+		</div>
+		
+		<div class="form-group ">
+	        <label class="control-label">Вашето съобщение</label>
+			<div class="controls">
+			    <div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+					<textarea name="msg" class="form-control " rows="4" cols="78" placeholder="Въведете вашето съобщение тук"></textarea>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	      <div class="controls" style="margin-left: 80%;">
+		  
+	       <button type="submit" id="mybtn"  class="btn btn-primary" >Изпрати съобщението</button>
+	        
+	      </div>
+		</form> 
+		</div><!--end contact form--> 
+
+
+
+		
+
+	</body>
+
+
+</html>

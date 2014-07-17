@@ -1,0 +1,53 @@
+todo:
+Home page must be completed 
+SignUp през active admin
+SignIn form and device
+include bootstrap in rails
+JS AND Angular JS courses.
+
+
+
+
+
+<div class="container">
+
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+
+
+
+
+	<div class = "container">
+			<div class = "row" id = "main-content">
+
+				<div class = "span4" id = "sidebar">
+					<div class = "well">
+						<form>
+							<fieldset>
+								<legend>Вход в системата</legend>
+								<input type="text" placeholder = "Потребителско име">
+								<input type="text" placeholder = "Парола">
+								<input type="submit" class = "btn btn--primary" value="Вход">
+							</fieldset>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>

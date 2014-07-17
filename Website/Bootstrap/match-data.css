@@ -1,0 +1,66 @@
+.team {
+	display:inline-block;
+
+}
+#guest{
+float:right;
+}
+.container .jumbotron{
+	padding-left: 150px;
+	padding-right: 150px;
+}
+#vs{
+	margin-left:20%;
+	
+}
+
+
+
+#hall{
+	margin-top:40px;
+	margin-left:45%;
+	width:10%;	
+
+}
+#hall h2{
+	text-align: center;
+}
+#time{
+	width:300px;
+	margin-left:0px;
+	
+}
+#time h2{
+	text-align: left;
+}
+#time .time {
+	display: inline-block;
+}
+.datetime{
+	display: inline-block;
+}
+#date{
+	float: right;
+	margin-right:80px;
+}
+.referees h2{
+	margin-top: 45px;
+	margin-left: 290px;
+}
+.referees .dropdown{
+	display: inline-block;
+	margin-left: 190px;
+}
+.players{
+	width: 40%;
+
+}
+.players {
+	display: inline-block;
+}
+#guest-players {
+	float:right;
+}
+.players{
+	margin-top: 30px;
+}

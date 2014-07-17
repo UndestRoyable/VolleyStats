@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>VolleyStats</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href ="css/bootstrap.min.css" rel = "stylesheet">
+		<link rel="stylesheet" type="text/css" href="match-data.css">
+	</head>
+
+	<body>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script>$('.datepicker').datepicker();	</script>
+
+		<div class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+
+				<a href = "index.htm" class = "navbar-brand">VolleyStats</a>
+
+				<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class  = "nav navbar-nav navbar-right">
+						<li class = "active"><a href = "index.htm"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href = "about-us.htm"><span class="glyphicon glyphicon-info-sign"></span> За нас</a></li>
+					
+
+						<li class = "dropdown">
+							
+							<a href="#" class="dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-stats"></span> Статистики <b class = "caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href = "#">На отбор</a></li>
+								<li><a href = "#">На играч</a></li>
+								<li><a href = "#">За период от време</a></li>
+								</ul>
+						</li>
+						
+						<li><a href = "login.htm"><span class="glyphicon glyphicon-user"></span> Вход</a></li>
+						<li><a href = "#"><span class="glyphicon glyphicon-list-alt"></span> Води статистика</a></li>
+						<li><a href = "contact.htm"><span class="glyphicon glyphicon-phone-alt"></span>  За контакти</a></li>
+
+						
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<div class = "container">
+			
+			<div class = "jumbotron">
+				<div class = "team">
+				<h2>Отбор домакин:</h2>
+					<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+		    				Изберете отбор
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+					</div><!--end of dropdown1-->
+					</div><!--end of div class team -->
+
+			<div class="team" id="vs">
+			<h2>VS.</h2>
+			</div>
+			<div id="guest" class = "team">
+				<h2>Гостуващ отбор:</h2>
+						<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Изберете отбор
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+					
+					</div><!--end of dropdown2-->
+			</div><!--end of div class team id vs-->
+
+			<div id="hall">
+			<h2>Зала:</h2>
+				<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Изберете зала
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+
+			</div><!--end of div id hall-->
+			</div>
+			<div id="time" class="datetime">
+				<h2>Час:</h2>
+					<div class="time">
+					<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Изберете час
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+		  										</div>
+		  										</div>
+		  					<div class="time">
+		  					<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Изберете минути
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+		  										</div>
+		  										</div>
+
+		  	</div><!---end of div id time-->
+
+		  	<div class="datetime" id="date">
+		  	<h2>Дата:</h2>
+		  	<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+  			<input class="span2" size="16" type="text" value="12-02-2012">
+  			<span class="add-on"><i class="icon-calendar"></i></span>
+			</div>
+		  	</div>
+
+		  	<div class="referees">
+		  	<h2>Изберете съдии:</h2>
+
+		  		<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Първи съдя
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+		  										</div>
+
+
+		  		<div class="dropdown">
+		  					
+		  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+		    				Втори съдя
+		    				<span class="caret"></span>
+		  							</button>
+		  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							    
+		    
+		  										</ul>
+		  										</div>
+
+		  	</div>
+
+		  	
+		  		<div id="players" >
+		  			<div class="players" >
+		  			<h2>от руби - име на отбора</h2>
+		  			<table>
+		  			<thead>
+		  				<tr>
+		  					<th>Номер</th>
+		  					<th>Име</th>
+		  					<th>Позиция</th>
+
+		  				</tr>
+
+		  			</thead>
+		  			<tr>
+		  				<td>ruby code must be inserted</td>
+		  				<td>ruby code must be inserted</td>
+		  				<td>ruby code must be inserted</td>
+		  			</tr>	
+		  			</table>
+		  			</div>
+		  			<div class="players" id="guest-players">
+
+		  			<h2>от руби - име на отбора</h2>
+		  			<table>
+		  			<thead>
+		  				<tr>
+		  					<th>Номер</th>
+		  					<th>Име</th>
+		  					<th>Позиция</th>
+
+		  				</tr>
+
+		  			</thead>
+		  			<tr>
+		  				<td>ruby code must be inserted</td>
+		  				<td>ruby code must be inserted</td>
+		  				<td>ruby code must be inserted</td>
+		  			</tr>	
+		  			</table>
+
+		  			</div>
+		  		</div>
+
+
+
+			</div><!--end of jumbotron -->
+		</div><!--end of container-->
+
+
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container2">
+			<p class ="navbar-text pull-left" >Copyright 2014 © Мирослав Маринов, Илия Никушев. Всички права запазени.</p>
+			<a href = "http://goo.gl/D4HZSz"class = "navbar-btn btn-primary btn pull-right">Намерете ни във Facebook</a>
+
+			</div>
+		</div>
+		</div>
+
+	</body>
+
+
+</html>
