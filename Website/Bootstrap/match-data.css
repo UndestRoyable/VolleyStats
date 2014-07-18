@@ -18,16 +18,16 @@ float:right;
 
 
 
-#hall{
+#hall,#city{
 	margin-top:5%;
 	margin-left:45%;
 	width:10%;	
 
 }
-#hall .d_container{
+#hall .d_container,#city .d_container{
 	margin-left:-20%;
 }
-#hall h2{
+#hall h2, #city h2{
 	text-align: center;
 }
 
@@ -63,8 +63,15 @@ float:right;
 }
 
 .players{
-	width: 40%;
+	width: 50%;
+	margin-left: -10%;
 
+}
+
+
+#guest-players{
+	margin-left: 0px;
+	margin-right:-10%;
 }
 .players {
 	display: inline-block;
@@ -79,6 +86,17 @@ float:right;
 	margin-top:5%;
 }
 
+table th:first-child,td:first-child{
+	width:1%;
+	text-align: center;
+	
+	
+	padding-right:15px;
+	 
+}
 
+table th:last-child,td:last-child{
+	padding-left:10px;
+}
 
 

@@ -1,4 +1,67 @@
 # encoding: UTF-8
+if(Hall.all.length == 0)
+  Hall.create(name:"Арена Армеец",city_id:15)
+  Hall.create(name:"Казанлък Арена",city_id:21)
+  Hall.create(name:"81 СОУ",city_id:1)
+  Hall.create(name:"18 СОУ",city_id:111)
+  Hall.create(name:"8 СОУ",city_id:115)
+  Hall.create(name:"1 СОУ",city_id:15)
+  Hall.create(name:"82 СОУ",city_id:21)
+  Hall.create(name:"88 СОУ",city_id:21)
+end
+
+if(Country.all.length == 0)
+Country.create(name:"България")
+Country.create(name:"Англия")
+Country.create(name:"Турция")
+Country.create(name:"Гърция")
+Country.create(name:"Марс")
+end
+
+if(Scout.all.length == 0)
+
+Scout.create(first_name:"Георги",last_name:"Oгнянов",email:"go@mail.bg",password:"password",password_confirmation:"password")
+end
+
+if(Referee.all.length == 0)
+Referee.create(first_name:"Иван",last_name:"Петрв",country_id:1)
+Referee.create(first_name:"Петър",last_name:"Иванов",country_id:2)
+Referee.create(first_name:"Огнян",last_name:"Златев",country_id:3)
+
+end
+if(Coach.all.length == 0)
+Coach.create(first_name:"Пламен",last_name:"Константинов",email:"pl_k@mail.bg", country_id:1)
+Coach.create(first_name:"Илия",last_name:"Никушев",email:"zdraviq_trener@mail.bg", country_id:2)
+Coach.create(first_name:"Тренер",last_name:"Звездев",email:"zvezdata@mail.bg", country_id:5)
+end
+
+if(Team.all.length == 0)
+Team.create(name:"ВК Славия",coach_id:1,number_players:12)
+Team.create(name:"ВК Виктория Волей",coach_id:2,number_players:12)
+Team.create(name:"ВК Звезди94",coach_id:3,number_players:12)
+
+
+end
+if(Position.all.length == 0)
+  Position.create(name:"Разпределител")
+  Position.create(name:"Диагонал")
+  Position.create(name:"Либеро")
+  Position.create(name:"Център")
+end
+if(Payer.all.length == 0)
+Player.create(team_id:1,first_name:"Йордан",last_name:"Велков",number:4,position_id:3,country_id:1)
+Player.create(team_id:1,first_name:"Георги",last_name:"Манчев",number:5,position_id:4,country_id:1)
+Player.create(team_id:1,first_name:"Кристиян",last_name:"Илиев",number:6,position_id:2,country_id:1)
+Player.create(team_id:2,first_name:"Стефан",last_name:"Петров",number:7,position_id:1,country_id:1)
+Player.create(team_id:2,first_name:"Павел",last_name:"Маринов",number:17,position_id:3,country_id:1)
+Player.create(team_id:2,first_name:"Георги",last_name:"Георгиев",number:9,position_id:1,country_id:1)
+Player.create(team_id:3,first_name:"Иван",last_name:"Иванов",number:14,position_id:4,country_id:1)
+Player.create(team_id:3,first_name:"Шемет",last_name:"Шеметов",number:8,position_id:2,country_id:1)
+Player.create(team_id:3,first_name:"Вихър",last_name:"Необуздан",number:4,position_id:3,country_id:1)
+end
+
+
+
 
 if(City.all.length == 0)
   City.create(name:"Айтос") 

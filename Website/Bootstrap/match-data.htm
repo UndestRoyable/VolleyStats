@@ -5,13 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href ="css/bootstrap.min.css" rel = "stylesheet">
+		<link href ="datepicker/css/datepicker.css" rel = "stylesheet">
+		
 		<link rel="stylesheet" type="text/css" href="match-data.css">
 	</head>
 
 	<body>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script>$('.datepicker').datepicker();	</script>
+		<script src="datepicker/js/bootstrap-datepicker.js"></script>
+		
 
 		<div class="navbar navbar-inverse navbar-static-top">
 			<div class="container">
@@ -86,6 +89,24 @@
 					
 					</div><!--end of dropdown2-->
 			</div><!--end of div class team id vs-->
+			<div id="city">
+			<h2>Град:</h2>
+			<div class = "d_container">
+				<div class="dropdown">
+		  					
+			  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+			    				Изберете град
+			    				<span class="caret"></span>
+			  							</button>
+			  									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								    
+			    
+			  										</ul>
+								</div>
+
+			</div>
+			</div>
+			
 
 			<div id="hall">
 			<h2>Зала:</h2>
@@ -137,11 +158,12 @@
 
 		  	<div class="right datetime" id = "date">
 		  	<h2>Дата:</h2>
-		  	<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  			<input class="span2" size="16" type="text" value="12-02-2012">
-  			<span class="add-on"><i class="icon-calendar"></i></span>
+		  	<div class="input-append date"  data-date="12-02-2012" data-date-format="dd-mm-yyyy" >
+  			<input class="span2" id="dp6" size="16" type="text" value="12-02-2012">
+  			<span class="glyphicon glyphicon-calendar"></span>
 			</div>
-		  	</div>
+			</div>
+
 
 		  	<div class="referees">
 		  	<h2>Изберете съдии:</h2>
@@ -208,13 +230,13 @@
 
 		  			</thead>
 		  			<tr>
-		  				<td>ruby code must be inserted</td>
-		  				<td>ruby code must be inserted</td>
-		  				<td>ruby code must be inserted</td>
+		  				<td>15</td>
+		  				<td>Рандом Човечец</td>
+		  				<td>Център</td>
 		  			</tr>	
 		  			</table>
 		  			</div>
-		  			<div class="right players">
+		  			<div class="right players" id="guest-players">
 
 		  			<h2>Име на гостуващия отбор /от Rails/</h2>
 		  			<table>
@@ -228,9 +250,9 @@
 
 		  			</thead>
 		  			<tr>
-		  				<td>ruby code must be inserted</td>
-		  				<td>ruby code must be inserted</td>
-		  				<td>ruby code must be inserted</td>
+		  				<td>8</td>
+		  				<td>Гошумир Пешов</td>
+		  				<td>Разпределител</td>
 		  			</tr>	
 		  			</table>
 
@@ -255,6 +277,8 @@
 			</div>
 		</div>
 		</div>
+
+		<script>$('#dp6').datepicker();	</script>
 
 	</body>
 
