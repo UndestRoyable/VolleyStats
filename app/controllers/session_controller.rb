@@ -1,12 +1,13 @@
 class SessionController < ApplicationController
-
+  skip_before_filter  :verify_authenticity_token
   def login
     #FORM PAGE
   end
 
   def create #create new session, called from login form
-    warden.authenticate!(:scope => resource_name, :recall => :login_fail)
+    # => warden.authenticate!(:scope => resource_name, :recall => :login_fail)
     #redirect_to "/stats"
+    puts params
     redirect_to "/index"
   end
 #http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html

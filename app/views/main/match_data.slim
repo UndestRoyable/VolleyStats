@@ -1,0 +1,109 @@
+-stylesheet "match-data"
+-stylesheet "datepicker"
+-javascript "datepicker"
+
+.container
+  .jumbotron
+    .left.team
+      h2 Отбор домакин:
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          | Изберете отбор
+          span.caret
+        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+    
+    #vs.team
+      h2 VS.
+    .right.team
+      h2 Гостуващ отбор:
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          | Изберете отбор
+          span.caret
+        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+     
+    #city
+      h2 Град:
+      .d_container
+        .dropdown
+          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+            | Изберете град
+            span.caret
+          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+    #hall
+      h2 Зала:
+      .d_container
+        .dropdown
+          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+            | Изберете зала
+            span.caret
+          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+      /! end of div id hall
+    #time.left.datetime
+      h2 Час:
+      .time
+        .dropdown
+          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+            | Изберете час
+            span.caret
+          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+      .time
+        .dropdown
+          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+            | Изберете минути
+            span.caret
+          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+   
+    #date.right.datetime
+      h2 Дата:
+      .input-append.date data-date="12-02-2012" data-date-format="dd-mm-yyyy" 
+        input#dp6.span2 size="16" type="text" value="12-02-2012" 
+          span.glyphicon.glyphicon-calendar
+    .referees
+      h2 Изберете съдии:
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          | Първи съдя
+          span.caret
+        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          | Втори съдя
+          span.caret
+        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+    .scout
+      h2 Изберете скаут:
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          | Име на скаут
+          span.caret
+        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu" 
+    #players
+      .left.players
+        h2 Име на отбора домакин: /от Rails/
+        table
+          thead
+            tr
+              th Номер
+              th Име
+              th Позиция
+          tr
+            td 15
+            td Рандом Човечец
+            td Център
+      #guest-players.right.players
+        h2 Име на гостуващия отбор /от Rails/
+        table
+          thead
+            tr
+              th Номер
+              th Име
+              th Позиция
+          tr
+            td 8
+            td Гошумир Пешов
+            td Разпределител
+    #button
+      a.navbar-btn.btn-primary.btn href="#"  Потвърди информацията
+
+script$('#dp6').datepicker();

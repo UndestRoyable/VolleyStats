@@ -3,9 +3,9 @@ html
   head
     title 
       = "VolleyStats:" + yield(:title)
-    -stylesheet "css/bootstrap.min"
-    -javascript "jquery"
-    -javascript "bootstrap.min"
+    =stylesheet_link_tag "css/bootstrap.min"
+    =javascript_include_tag "jquery"
+    =javascript_include_tag "bootstrap.min"
     = yield(:stylesheets)
     = yield(:javascripts)
     = csrf_meta_tags 
@@ -47,7 +47,7 @@ html
                 span.glyphicon.glyphicon-user style="#{margin}"
                 | Вход
             li
-              a href="#" 
+              a href="/match-data" 
                 span.glyphicon.glyphicon-list-alt style="#{margin}"
                 | Води статистика
             li
@@ -55,6 +55,11 @@ html
                 span.glyphicon.glyphicon-phone-alt style="#{margin}"
                 | За контакти
     = yield 
+
+    .navbar.navbar-default.navbar-fixed-bottom
+      .container2
+       p.navbar-text.pull-left Copyright 2014 © Мирослав Маринов, Илия Никушев. Всички права запазени.
+       a.navbar-btn.btn-primary.btn.pull-right href="http://goo.gl/D4HZSz"  Намерете ни във Facebook
 
 
 

@@ -1,0 +1,108 @@
+.team {
+	display:inline-block;
+}
+.left{
+	width: 45%;
+}
+.right{
+float:right;
+}
+.container .jumbotron{
+	padding-left: 150px;
+	padding-right: 150px;
+}
+#vs{
+	width: 9%;
+	text-align: center;
+}
+
+
+
+#hall,#city{
+	margin-top:5%;
+	margin-left:45%;
+	width:10%;	
+
+}
+#hall .d_container,#city .d_container{
+	margin-left:-20%;
+}
+#hall h2, #city h2{
+	text-align: center;
+}
+
+#time h2{
+	text-align: left;
+}
+#time .time {
+	display: inline-block;
+}
+.datetime{
+	display: inline-block;
+}
+#date{
+	margin-right: 10%;
+}
+.referees h2{
+	margin-top: 6%;
+	margin-left: 35%;
+}
+.referees .dropdown{
+	display: inline-block;
+	margin-left: 22.5%;
+}
+
+.scout h2{
+	margin-top: 7%;
+	margin-left: 35%;
+}
+
+.scout .dropdown{
+	display: inline-block;
+	margin-left: 40%;
+}
+
+.players{
+	width: 50%;
+	margin-left: -10%;
+
+}
+
+
+#guest-players{
+	margin-left: 0px;
+	margin-right:-10%;
+}
+.players {
+	display: inline-block;
+}
+
+.players{
+	margin-top: 5%;
+}
+
+#button{
+	margin-left:35%;
+	margin-top:5%;
+}
+
+table th:first-child,td:first-child{
+	width:1%;
+	text-align: center;
+	
+	
+	padding-right:15px;
+	 
+}
+
+table th:last-child,td:last-child{
+	padding-left:10px;
+}
+
+.container2 {
+	padding-left: 105px;
+	padding-right: 105px;
+	
+
+}
+

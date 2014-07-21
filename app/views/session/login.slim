@@ -1,13 +1,14 @@
 -stylesheet "signin"
-
+-javascript "login"
+-javascript "jquery.serializejson.min"
 
 .container
   form.form-signin role="form" 
     h2.form-signin-heading Вход в системата
-    input.form-control autofocus="" placeholder=("Имейл адрес") required="" type="email" 
-      input.form-control placeholder="Парола" required="" type="password" 
+    input#email.form-control autofocus="" placeholder=("Имейл адрес") required="" type="email" 
+      input#password.form-control placeholder="Парола" required="" type="password" 
         .checkbox
           label
             input type="checkbox" value="remember-me" 
               | Запомни ме
-        button.btn.btn-lg.btn-primary.btn-block type="submit"  Sign in
+        button.btn.btn-lg.btn-primary.btn-block onclick="login(2);" type="submit"  Sign in 
