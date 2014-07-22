@@ -48,7 +48,7 @@ if(Position.all.length == 0)
   Position.create(name:"Либеро")
   Position.create(name:"Център")
 end
-if(Payer.all.length == 0)
+if(Player.all.length == 0)
 Player.create(team_id:1,first_name:"Йордан",last_name:"Велков",number:4,position_id:3,country_id:1)
 Player.create(team_id:1,first_name:"Георги",last_name:"Манчев",number:5,position_id:4,country_id:1)
 Player.create(team_id:1,first_name:"Кристиян",last_name:"Илиев",number:6,position_id:2,country_id:1)
