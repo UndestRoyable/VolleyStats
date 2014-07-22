@@ -1,3 +1,3 @@
 class Coach < ActiveRecord::Base
-  belongs_to :contry
+  belongs_to :country
 end
