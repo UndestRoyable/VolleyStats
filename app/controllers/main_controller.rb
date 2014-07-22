@@ -7,7 +7,4 @@ class MainController < ApplicationController
 
   def contact
   end
-
-  def match_data
-  end
 end

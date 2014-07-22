@@ -3,7 +3,7 @@
 -javascript "jquery.serializejson.min"
 
 .container
-  form.form-signin role="form" 
+  form.form-signin role="form" onsubmit="login(2);return false;"
     h2.form-signin-heading Вход в системата
     input#email.form-control autofocus="" placeholder=("Имейл адрес") required="" type="email" 
       input#password.form-control placeholder="Парола" required="" type="password" 
@@ -11,4 +11,4 @@
           label
             input type="checkbox" value="remember-me" 
               | Запомни ме
-        button.btn.btn-lg.btn-primary.btn-block onclick="login(2);" type="submit"  Sign in 
+        button.btn.btn-lg.btn-primary.btn-block type="submit"  Sign in 
