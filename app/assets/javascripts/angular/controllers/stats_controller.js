@@ -21,22 +21,21 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
   $scope.host_team_changed = function() {
     console.log('host_team_changed');
     $scope.match.host_id = $scope.host.id;
-    console.log($scope.host);
-    console.log($scope.match.host_id);
-    getPlayers($scope.match.host_id).then(function(response){$scope.host_players = response;console.log($scope.host_players);});
-    console.log($scope.host_players)
+
+    statsServices.getPlayers($scope.match.host_id).then(function(response){
+      $scope.host_players = response;
+    });
   }
 
   $scope.guest_team_changed = function() {
     console.log('guest_team_changed');
     console.log($scope.match.guest_id);
-    $scope.guest_players = getPlayers($scope.match.guest_id);
-  }
+    $scope.match.guest_id = $scope.guest.id;
 
-  function getPlayers(team_id){
-    return statsServices.getPlayers(team_id);
+    statsServices.getPlayers($scope.match.guest_id).then(function(response){
+      $scope.guest_players = response;
+    });
   }
-  
   
   statsServices.getCities().then(function(response) {
   $scope.cities = response;

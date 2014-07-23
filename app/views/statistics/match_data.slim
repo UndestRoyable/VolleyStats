@@ -15,7 +15,7 @@
     .right.team
       h2 Гостуващ отбор:
       .dropdown
-        select[ng-model='match.guest_id' ng-options='team.id as team.name for team in guest_teams()' ng-change='guest_team_changed()']
+        select[ng-model='guest' ng-options='team.name for team in guest_teams()' ng-change='guest_team_changed()']
 
     #city
       h2 Град:
@@ -57,7 +57,7 @@
          select[ng-model='match.second_referee_id' ng-options='referee.id as referee.name for referee in second_referees()']
      
     #players
-      .left.players [ng-if = "!host"]
+      .left.players
         h2 
         |{{host.name}}
         table
@@ -66,13 +66,31 @@
               th Номер
               th Име
               th Позиция
-          tr [ng-repeat ="player in host_players"]
-            td 
-            |{{player.number}}
-            td 
-            |{{player.name}}
-            td 
-            |{{player.position_name}}
+          tbody
+            tr [ng-repeat="player in host_players"]
+              td
+                | {{player.number}}
+              td
+                | {{player.name}}
+              td
+                | {{player.position_name}}
+      .right.players#guest-players
+        h2 
+        |{{guest.name}}
+        table
+          thead
+            tr
+              th Номер
+              th Име
+              th Позиция
+          tbody
+            tr [ng-repeat="player in guest_players"]
+              td
+                | {{player.number}}
+              td
+                | {{player.name}}
+              td
+                | {{player.position_name}}
       
     #button
       a.navbar-btn.btn-primary.btn[href="#" ng-click='submit_match_info()']  Потвърди информацията
