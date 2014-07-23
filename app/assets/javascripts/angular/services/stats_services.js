@@ -34,7 +34,7 @@ stats_services.factory('statsServices', ['$http', function($http) {
       return promise;
     },
 
-    getReferee:function(){
+    getReferees:function(){
       var promise = $http.get('/api/referees').then(function (response) {
         return response.data;
       });

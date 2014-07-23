@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'players/:team_id' => 'data#players_of_team'
     get 'cities' => 'data#cities'
     get 'halls/:city_id' => 'data#halls_of_city'
+    get 'referees' => 'data#referees'
     post 'save_match' => 'data#save_match'
 
   end

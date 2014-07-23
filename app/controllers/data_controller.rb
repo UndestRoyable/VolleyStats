@@ -8,7 +8,7 @@ class DataController < ApplicationController
 
   def players_of_team
     team_id = params[:team_id]
-    players = Player.joins(:position).select("positions.name as position_name, players.first_name, players.last_name, players.number").where("players.team_id = #{team_id}")
+    players = Player.joins(:position).select("positions.name as position_name, players.first_name || ' ' || players.last_name as name, players.number").where("players.team_id = #{team_id}")
     respond_with players
   end
 
@@ -23,6 +23,13 @@ class DataController < ApplicationController
     respond_with halls
 
   end
+
+  def referees
+    referees = Referee.select("(referees.first_name || ' ' || referees.last_name) as name ,referees.id")
+    respond_with referees
+
+  end
+
   def save_match
     #.... save match here
 

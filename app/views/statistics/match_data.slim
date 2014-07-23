@@ -8,7 +8,7 @@
       h2 Отбор домакин:
 
       .dropdown
-        select[ng-model='match.host_id' ng-options='team.id as team.name for team in host_teams()' ng-change='host_team_changed()']
+        select[ng-model='host' ng-options='team.name for team in host_teams()' ng-change='host_team_changed()']
 
     #vs.team
       h2 VS.
@@ -52,47 +52,28 @@
     .referees
       h2 Изберете съдии:
       .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-          | Първи съдя
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+        select[ng-model='match.first_referee_id' ng-options='referee.id as referee.name for referee in first_referees()']
       .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-          | Втори съдя
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
-    .scout
-      h2 Изберете скаут:
-      .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-          | Име на скаут
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+         select[ng-model='match.second_referee_id' ng-options='referee.id as referee.name for referee in second_referees()']
+     
     #players
-      .left.players
-        h2 Име на отбора домакин: /от Rails/
+      .left.players [ng-if = "!host"]
+        h2 
+        |{{host.name}}
         table
           thead
             tr
               th Номер
               th Име
               th Позиция
-          tr
-            td 15
-            td Рандом Човечец
-            td Център
-      #guest-players.right.players
-        h2 Име на гостуващия отбор /от Rails/
-        table
-          thead
-            tr
-              th Номер
-              th Име
-              th Позиция
-          tr
-            td 8
-            td Гошумир Пешов
-            td Разпределител
+          tr [ng-repeat ="player in host_players"]
+            td 
+            |{{player.number}}
+            td 
+            |{{player.name}}
+            td 
+            |{{player.position_name}}
+      
     #button
       a.navbar-btn.btn-primary.btn[href="#" ng-click='submit_match_info()']  Потвърди информацията
 
