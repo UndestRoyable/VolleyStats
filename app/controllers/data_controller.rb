@@ -6,6 +6,12 @@ class DataController < ApplicationController
     respond_with teams
   end
 
+  def players_of_team
+    team_id = params[:team_id]
+    players = Player.joins(:position).select("positions.name as position_name, players.first_name, players.last_name, players.number").where("players.team_id = #{team_id}")
+    respond_with players
+  end
+
   def save_match
     #.... save match here
 

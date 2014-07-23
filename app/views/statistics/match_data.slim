@@ -8,23 +8,14 @@
       h2 Отбор домакин:
 
       .dropdown
-        |{{match}}
-        select[ng-model='match.host_id' ng-options='team.id as team.name for team in host_teams' ng-change='host_team_changed()']
-
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-          | Изберете отбор
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+        select[ng-model='match.host_id' ng-options='team.id as team.name for team in host_teams()' ng-change='host_team_changed()']
 
     #vs.team
       h2 VS.
     .right.team
       h2 Гостуващ отбор:
       .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-          | Изберете отбор
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+        select[ng-model='match.guest_id' ng-options='team.id as team.name for team in guest_teams()' ng-change='guest_team_changed()']
 
     #city
       h2 Град:

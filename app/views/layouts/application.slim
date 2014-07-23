@@ -3,10 +3,12 @@ html
   head
     title
       = "VolleyStats:" + yield(:title)
-    =stylesheet_link_tag "css/bootstrap.min"
-    =javascript_include_tag "jquery"
-    =javascript_include_tag "bootstrap.min"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag "css/bootstrap.min"
+    = javascript_include_tag "jquery"
+    = javascript_include_tag "bootstrap.min"
+    = javascript_include_tag "extentions"
+    -if(params[:controller] != "main" && current_scout.present?)
+      = javascript_include_tag "application"
 
     = yield(:stylesheets)
     = yield(:javascripts)

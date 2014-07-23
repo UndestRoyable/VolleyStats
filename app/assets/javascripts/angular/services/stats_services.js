@@ -10,6 +10,13 @@ stats_services.factory('statsServices', ['$http', function($http) {
 
       return promise;
     },
+    getPlayers:function(team_id){
+      var promise = $http.get('/api/players/'+ team_id).then(function (response) {
+        return response.data;
+      });
+
+      return promise;
+    },
 
     submitMatch: function(match) {
       var promise = $http.post('/api/save_match', match).then(function(response) {
