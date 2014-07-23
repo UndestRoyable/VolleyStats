@@ -44,9 +44,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.0.7)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -97,6 +99,7 @@ GEM
     minitest (5.4.0)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
@@ -171,10 +174,12 @@ GEM
       rack (>= 1.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
   activeadmin!
+  angularjs-rails
   coffee-rails (~> 4.0.0)
   devise
   hirb

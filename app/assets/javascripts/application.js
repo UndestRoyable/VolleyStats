@@ -10,3 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require angular
+//= require_directory ./angular
+//= require_directory ./angular/services
+//= require_directory ./angular/controllers

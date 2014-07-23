@@ -1,37 +1,39 @@
 DOCTYPE html
 html
   head
-    title 
+    title
       = "VolleyStats:" + yield(:title)
     =stylesheet_link_tag "css/bootstrap.min"
     =javascript_include_tag "jquery"
     =javascript_include_tag "bootstrap.min"
+    = javascript_include_tag "application"
+
     = yield(:stylesheets)
     = yield(:javascripts)
-    = csrf_meta_tags 
-    meta content="width=device-width, initial-scale=1.0" name="viewport" 
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" 
-  body
+    = csrf_meta_tags
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+  body[ng-app="#{@angular_app}" ng-controller="#{@angular_controller}"]
     -margin="margin-right:5px;"
     .navbar.navbar-inverse.navbar-static-top
       .container
         a.navbar-brand href="/index"  VolleyStats
-        button.navbar-toggle data-target=".navHeaderCollapse" data-toggle="collapse" 
+        button.navbar-toggle data-target=".navHeaderCollapse" data-toggle="collapse"
           span.icon-bar
           span.icon-bar
           span.icon-bar
         .collapse.navbar-collapse.navHeaderCollapse
           ul.nav.navbar-nav.navbar-right
             li
-              a href="/index" 
+              a href="/index"
                 span.glyphicon.glyphicon-home style="#{margin}"
                 | Home
             li
-              a href="/about-us" 
+              a href="/about-us"
                 span.glyphicon.glyphicon-info-sign style="#{margin}"
                 | За нас
             li.dropdown
-              a.dropdown-toggle data-toggle="dropdown" href="#" 
+              a.dropdown-toggle data-toggle="dropdown" href="#"
                 span.glyphicon.glyphicon-stats style="#{margin}"
                 | Статистики
                 b.caret
@@ -44,22 +46,22 @@ html
                   a href="#"  За период от време
             li
               -if(current_scout.nil?)
-                a href="/login" 
+                a href="/login"
                   span.glyphicon.glyphicon-user style="#{margin}"
                   | Вход
               -else
-                a href="/logout" 
+                a href="/logout"
                   span.glyphicon.glyphicon-user style="#{margin}"
                   | Изход
             li
-              a href="/match-data" 
+              a href="/match-data"
                 span.glyphicon.glyphicon-list-alt style="#{margin}"
                 | Води статистика
             li
-              a href="/contact-us" 
+              a href="/contact-us"
                 span.glyphicon.glyphicon-phone-alt style="#{margin}"
                 | За контакти
-    = yield 
+    = yield
 
     .navbar.navbar-default.navbar-fixed-bottom
       .container2

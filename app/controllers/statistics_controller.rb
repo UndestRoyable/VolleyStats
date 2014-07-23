@@ -1,5 +1,6 @@
 class StatisticsController < ApplicationController
   before_filter :verify_scout
+  before_filter :set_angular_app, only: [:match_data, :match_statistic]
 
   def match_data
   end
@@ -12,6 +13,13 @@ class StatisticsController < ApplicationController
   def verify_scout
     if(current_scout.nil?)
       redirect_to "/login"
+    end
+  end
+
+  def set_angular_app
+    if current_scout.present?
+      @angular_app = 'stats'
+      @angular_controller = 'stats_controller'
     end
   end
 end
