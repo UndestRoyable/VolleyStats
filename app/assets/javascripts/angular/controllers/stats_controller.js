@@ -33,6 +33,19 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
   function getPlayers(team_id){
     return statsServices.getPlayers(team_id);
   }
+  
+  
+  statsServices.getCities().then(function(response) {
+  $scope.cities = response;
+  });
+
+  $scope.city_changed = function() {
+    console.log('city_changed');
+    console.log($scope.match.city_id);
+    $scope.halls = statsServices.getHalls($scope.match.city_id);
+  }
+
+
 
   $scope.submit_match_info = function() {
     console.log('submit_match_info');
@@ -43,4 +56,5 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
       console.log(response);
     });
   }
+
 }]);

@@ -21,19 +21,14 @@
       h2 Град:
       .d_container
         .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-            | Изберете град
-            span.caret
-          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+          select [ng-model="match.city_id" ng-options="city.id as city.name for city in cities" ng-change="city_changed()"]
     #hall
       h2 Зала:
       .d_container
         .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-            | Изберете зала
-            span.caret
-          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
-      /! end of div id hall
+            select [ng-model="match.hall_id" ng-options="hall.id as hall.name for hall in halls"]
+
+
     #time.left.datetime
       h2 Час:
       .time

@@ -12,6 +12,17 @@ class DataController < ApplicationController
     respond_with players
   end
 
+  def cities
+    cities = City.select("cities.name,cities.id")
+    respond_with cities
+  end
+
+  def halls_of_city
+    city_id = params[:city_id]
+    halls = Hall.select("halls.name,halls.id").where("halls.city_id = #{city_id}")
+    respond_with halls
+
+  end
   def save_match
     #.... save match here
 

@@ -27,7 +27,10 @@ Rails.application.routes.draw do
   scope 'api' do
     get 'teams' => 'data#teams'
     get 'players/:team_id' => 'data#players_of_team'
+    get 'cities' => 'data#cities'
+    get 'halls/:city_id' => 'data#halls_of_city'
     post 'save_match' => 'data#save_match'
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
