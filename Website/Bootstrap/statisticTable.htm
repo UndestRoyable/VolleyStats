@@ -15,6 +15,51 @@
 <body>
 
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+
+                <a href = "index.htm" class = "navbar-brand">VolleyStats</a>
+
+                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse navHeaderCollapse">
+                    <ul class  = "nav navbar-nav navbar-right">
+                        <li><a href = "index.htm"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li><a href = "about-us.htm"><span class="glyphicon glyphicon-info-sign"></span> За нас</a></li>
+                    
+
+                        <li class = "dropdown">
+                            
+                            <a href="#" class="dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-stats"></span> Статистики <b class = "caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href = "#">На отбор</a></li>
+                                <li><a href = "#">На играч</a></li>
+                                <li><a href = "#">За период от време</a></li>
+                                </ul>
+                        </li>
+                        
+                        <li><a href = "login.htm"><span class="glyphicon glyphicon-user"></span> Вход</a></li>
+                        <li class = "active"><a href = "match-data.htm"><span class="glyphicon glyphicon-list-alt"></span> Води статистика</a></li>
+                        <li><a href = "contact.htm"><span class="glyphicon glyphicon-phone-alt"></span>  За контакти</a></li>
+
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
 <div class = "container">
 
 
@@ -129,152 +174,11 @@
 </div>
 
 
-<h2>Host team</h2>
-<table class="tg" id = "host">
-  <tr>
-    <th class="tg-031e" colspan="2" rowspan="2"></th>
-    <th class="tg-hgcj">Стартира от</th>
-    <th class="tg-hgcj" colspan="3">Tочки</th>
-    <th class="tg-hgcj" colspan="3">Сервис</th>
-    <th class="tg-hgcj" colspan="3">Посрещане</th>
-    <th class="tg-hgcj" colspan="5">Атака</th>
-    <th class="tg-e3zv">BK&nbsp;</th>
-  </tr>
-  <tr>
-    <td class="tg-031e">зона</td>
-    <td class="tg-s6z2">Oбщо</td>
-    <td class="tg-s6z2">BP</td>
-    <td class="tg-s6z2">W-L</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Aсове</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Ефективност(%)</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Блокади</td>
-    <td class="tg-s6z2">Точки</td>
-    <td class="tg-s6z2">Ефективност(%)</td>
-    <td class="tg-s6z2">Общо</td>
-  </tr>
-  <tr>
-    <td class="tg-031e">4</td>
-    <td class="tg-031e">Йордан Велков</td>
-    <td class="tg-031e">6</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се </td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></span></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се </td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-  </tr>
-  <tr>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-  </tr>
+    <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#">Гейм №1</a></li>
+
+
  
-</table>
-
-
-<h2>Guest team</h2>
-<table class="tg" id = "guest">
-  <tr>
-    <th class="tg-031e" colspan="2" rowspan="2"></th>
-    <th class="tg-hgcj">Стартира от</th>
-    <th class="tg-hgcj" colspan="3">Tочки</th>
-    <th class="tg-hgcj" colspan="3">Сервис</th>
-    <th class="tg-hgcj" colspan="3">Посрещане</th>
-    <th class="tg-hgcj" colspan="5">Атака</th>
-    <th class="tg-e3zv">BK&nbsp;</th>
-  </tr>
-  <tr>
-    <td class="tg-031e">зона</td>
-    <td class="tg-s6z2">Oбщо</td>
-    <td class="tg-s6z2">BP</td>
-    <td class="tg-s6z2">W-L</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Aсове</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Ефективност(%)</td>
-    <td class="tg-s6z2">Общо</td>
-    <td class="tg-s6z2">Грешки</td>
-    <td class="tg-s6z2">Блокади</td>
-    <td class="tg-s6z2">Точки</td>
-    <td class="tg-s6z2">Ефективност(%)</td>
-    <td class="tg-s6z2">Общо</td>
-  </tr>
-  <tr>
-    <td class="tg-031e">4</td>
-    <td class="tg-031e">Йордан Велков</td>
-    <td class="tg-031e">1</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></span></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-    <td class="tg-031e">Пресмята се</td>
-    <td class="tg-031e"><span class="glyphicon glyphicon-plus-sign"></span> <span class="glyphicon glyphicon-minus-sign"></td>
-  </tr>
-  <tr>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-  </tr>
- 
-</table>
-
-
 
 </body>
 </html>
