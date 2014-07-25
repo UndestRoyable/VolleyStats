@@ -1,6 +1,6 @@
 angular.module('stats').controller('stats_controller', ['$scope', 'statsServices', function($scope, statsServices) {
   console.log('stats_controller loaded...');
-  $scope.match = [];
+  $scope.match = {};
   statsServices.getTeams().then(function(response) {
     $scope.teams = response;
     $scope.host_teams = function(){
@@ -20,7 +20,14 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
 
   $scope.host_team_changed = function() {
     console.log('host_team_changed');
-    $scope.match.host_id = $scope.host.id;
+    if($scope.host != null)
+      $scope.match.host_id = $scope.host.id; 
+    else {
+      $scope.match.host_id = undefined;
+      $scope.host_players = [];
+      return;
+    }
+    console.log($scope.match.host_id)
 
     statsServices.getPlayers($scope.match.host_id).then(function(response){
       $scope.host_players = response;
@@ -29,8 +36,13 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
 
   $scope.guest_team_changed = function() {
     console.log('guest_team_changed');
-    console.log($scope.match.guest_id);
-    $scope.match.guest_id = $scope.guest.id;
+    if($scope.guest != null)
+      $scope.match.guest_id = $scope.guest.id;
+    else {
+      $scope.match.guest_id = undefined;
+      $scope.guest_players = [];
+      return;
+    }
 
     statsServices.getPlayers($scope.match.guest_id).then(function(response){
       $scope.guest_players = response;
@@ -64,13 +76,24 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
     console.log($scope.referees);
   });
 
+    statsServices.getHours().then(function(response) {
+  $scope.hours = response;
+  });
+
+    statsServices.getMinutes().then(function(response) {
+  $scope.minutes = response;
+  });
 
   $scope.submit_match_info = function() {
     console.log('submit_match_info');
+    console.log($scope.match)
     statsServices.submitMatch($scope.match).then(function(response) {
       console.log('match submited...');
-      console.log('TODO: now redirect me!');
-
+      console.log(location);
+      var protocol = window.location.protocol;
+      var host = window.location.host;
+      var http = protocol + "//" + host + "/";
+      window.location.replace(http + response);
       console.log(response);
     });
   }

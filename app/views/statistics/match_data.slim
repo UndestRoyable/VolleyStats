@@ -1,49 +1,44 @@
 -stylesheet "match-data"
 -stylesheet "datepicker"
 -javascript "datepicker"
-
 .container
   .jumbotron
     .left.team
       h2 Отбор домакин:
 
       .dropdown
-        select[ng-model='host' ng-options='team.name for team in host_teams()' ng-change='host_team_changed()']
-
+        select[ng-model='host' ng-options='team.name for team in host_teams()' ng-change='host_team_changed()' ]
+          option value=""  Изберете отбор домакин
     #vs.team
       h2 VS.
     .right.team
       h2 Гостуващ отбор:
       .dropdown
         select[ng-model='guest' ng-options='team.name for team in guest_teams()' ng-change='guest_team_changed()']
-
+          option value=""  Изберете гостуващ отбор 
     #city
       h2 Град:
       .d_container
         .dropdown
           select [ng-model="match.city_id" ng-options="city.id as city.name for city in cities" ng-change="city_changed()"]
+            option value=""  Изберете град
     #hall
       h2 Зала:
       .d_container
         .dropdown
             select [ng-model="match.hall_id" ng-options="hall.id as hall.name for hall in halls"]
-
+              option value=""  Изберете зала
 
     #time.left.datetime
       h2 Час:
       .time
         .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-            | Изберете час
-            span.caret
-          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+          select [ng-model = "match.hours" ng-options = "hour for hour in hours"]
+             option value=""  Изберете час
       .time
         .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-            | Изберете минути
-            span.caret
-          ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
-
+          select [ng-model = "match.minutes" ng-options = "minute for minute in minutes"]
+             option value=""  Изберете минути
     #date.right.datetime
       h2 Дата:
       .input-append.date data-date="12-02-2012" data-date-format="dd-mm-yyyy"
@@ -53,13 +48,14 @@
       h2 Изберете съдии:
       .dropdown
         select[ng-model='match.first_referee_id' ng-options='referee.id as referee.name for referee in first_referees()']
+          option value=""  Изберете първи съдя
       .dropdown
          select[ng-model='match.second_referee_id' ng-options='referee.id as referee.name for referee in second_referees()']
-     
+            option value=""  Изберете втори съдя  
     #players
       .left.players
         h2 
-        |{{host.name}}
+          |{{host.name}}
         table
           thead
             tr
@@ -76,7 +72,7 @@
                 | {{player.position_name}}
       .right.players#guest-players
         h2 
-        |{{guest.name}}
+          |{{guest.name}}
         table
           thead
             tr
@@ -93,6 +89,6 @@
                 | {{player.position_name}}
       
     #button
-      a.navbar-btn.btn-primary.btn[href="#" ng-click='submit_match_info()']  Потвърди информацията
+      a.navbar-btn.btn-primary.btn[ng-click='submit_match_info()']  Потвърди информацията
 
 script$('#dp6').datepicker();

@@ -30,7 +30,11 @@ Rails.application.routes.draw do
     get 'cities' => 'data#cities'
     get 'halls/:city_id' => 'data#halls_of_city'
     get 'referees' => 'data#referees'
+    get 'hours' => 'data#hours'
+    get 'minutes' => 'data#minutes'
+
     post 'save_match' => 'data#save_match'
+
 
   end
 

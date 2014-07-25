@@ -9,7 +9,7 @@ html
     = javascript_include_tag "extentions"
     -if(params[:controller] != "main" && current_scout.present?)
       = javascript_include_tag "application"
-
+      = stylesheet_link_tag "application"
     = yield(:stylesheets)
     = yield(:javascripts)
     = csrf_meta_tags

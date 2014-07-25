@@ -15,3 +15,7 @@
 //= require_directory ./angular
 //= require_directory ./angular/services
 //= require_directory ./angular/controllers
+//=require select2.min 
+//=require select2_locale_bg
+
+$(document).ready(function() { $("select").select2({ dropdownAutoWidth : true}); });

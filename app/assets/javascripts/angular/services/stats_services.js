@@ -42,6 +42,23 @@ stats_services.factory('statsServices', ['$http', function($http) {
       return promise;
     },
 
+    getHours:function(){
+      var promise = $http.get('/api/hours').then(function (response) {
+        return response.data;
+      });
+
+      return promise;
+    },
+
+    getMinutes:function(){
+      var promise = $http.get('/api/minutes').then(function (response) {
+        return response.data;
+      });
+
+      return promise;
+    },
+
+
     submitMatch: function(match) {
       var promise = $http.post('/api/save_match', match).then(function(response) {
         return response.data;
