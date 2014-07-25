@@ -35,6 +35,8 @@
         .dropdown
           select [ng-model = "match.hours" ng-options = "hour for hour in hours"]
              option value=""  Изберете час
+      h2.time 
+        |:
       .time
         .dropdown
           select [ng-model = "match.minutes" ng-options = "minute for minute in minutes"]
@@ -47,10 +49,10 @@
           span.glyphicon.glyphicon-calendar
     .referees
       h2 Изберете съдии:
-      .dropdown
+      .dropdown.first-ref
         select[ng-model='match.first_referee_id' ng-options='referee.id as referee.name for referee in first_referees()']
           option value=""  Изберете първи съдя
-      .dropdown
+      .dropdown.second-ref
          select[ng-model='match.second_referee_id' ng-options='referee.id as referee.name for referee in second_referees()']
             option value=""  Изберете втори съдя  
     #players

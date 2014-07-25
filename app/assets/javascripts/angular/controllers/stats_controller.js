@@ -90,17 +90,17 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
       console.log('match submited...');
       console.log("Response: " + response);
       if(response.invalid != undefined){
-        alert("Data is invalid!");
+        alert("Въведени са невалидни данни!");
         console.log(response.invalid);
         return;
       }
       else if(response.missing != undefined){
-        alert("Data is missing!");
+        alert("Моля попълнете всички полета!");
         console.log(response.missing);
         return;
       }
       else if(respnse.not_found != undefined){
-        alert("Not existing data!");
+        alert("Несъществуващи данни!");
         console.log(response.not_found);
         return;
       }
