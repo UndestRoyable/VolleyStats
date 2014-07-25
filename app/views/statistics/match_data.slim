@@ -41,8 +41,9 @@
              option value=""  Изберете минути
     #date.right.datetime
       h2 Дата:
-      .input-append.date data-date="12-02-2012" data-date-format="dd-mm-yyyy"
-        input#dp6.span2 size="16" type="text" value="12-02-2012"
+      -date = Time.now.strftime("%m/%d/%Y")
+      .input-append.date data-date="#{date}" data-date-format="dd/mm/yyyy"
+        input#dp6.span2 [ng-init="match.date = '#{date}'" ng-model = "match.date" size="16" type="text"]
           span.glyphicon.glyphicon-calendar
     .referees
       h2 Изберете съдии:

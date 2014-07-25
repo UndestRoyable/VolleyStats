@@ -86,15 +86,29 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
 
   $scope.submit_match_info = function() {
     console.log('submit_match_info');
-    console.log($scope.match)
     statsServices.submitMatch($scope.match).then(function(response) {
       console.log('match submited...');
-      console.log(location);
+      console.log("Response: " + response);
+      if(response.invalid != undefined){
+        alert("Data is invalid!");
+        console.log(response.invalid);
+        return;
+      }
+      else if(response.missing != undefined){
+        alert("Data is missing!");
+        console.log(response.missing);
+        return;
+      }
+      else if(respnse.not_found != undefined){
+        alert("Not existing data!");
+        console.log(response.not_found);
+        return;
+      }
+
       var protocol = window.location.protocol;
       var host = window.location.host;
       var http = protocol + "//" + host + "/";
       window.location.replace(http + response);
-      console.log(response);
     });
   }
 
