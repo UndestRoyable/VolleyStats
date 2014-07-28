@@ -43,7 +43,7 @@
              option value=""  Изберете минути
     #date.right.datetime
       h2 Дата:
-      -date = Time.now.strftime("%m/%d/%Y")
+      -date = Time.now.strftime("%d/%m/%Y")
       .input-append.date data-date="#{date}" data-date-format="dd/mm/yyyy"
         input#dp6.span2 [ng-init="match.date = '#{date}'" ng-model = "match.date" size="16" type="text"]
           span.glyphicon.glyphicon-calendar

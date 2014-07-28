@@ -7,6 +7,7 @@ class StatisticsController < ApplicationController
 
   def match_statistic
     match_id = params[:match_id]
+    @match = Match.find(match_id)
   end
 
   private

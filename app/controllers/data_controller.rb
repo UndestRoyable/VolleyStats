@@ -44,6 +44,7 @@ class DataController < ApplicationController
 
   def save_match
     state = check_match_parameters
+    puts state
     missing = state[:missing]
     if(missing.length != 0)
       render json:{missing:missing}
@@ -62,11 +63,35 @@ class DataController < ApplicationController
       return
     end
 
-    puts params
-    # TODO respond with id of the created match
-    match_id = 5
-    render json: "statistics/#{match_id}"
+    d = Date.strptime(params[:date], "%d/%m/%Y")
+    m = Match.new()
+    m.date = (DateTime.new(d.year,d.month,d.day,params[:hours],params[:minutes]))
+    m.save
+    
+    match_guest = MatchGuest
+    m.match_host = MatchHost.create(team_id:params[:host_id],match_id:m.id)
+    m.match_guest = match_guest.create(team_id:params[:guest_id],match_id:m.id)
+    m.hall_id = params[:hall_id]
+    m.scout_id = current_scout.id
+    m.save
+
+    if(params.has_key?(:first_referee_id))
+      match_referee.create(match_id:m.id,referee_id:params[:first_referee])
+
+    end
+
+    if(params.has_key?(:second_referee_id))
+      match_referee.create(match_id:m.id,referee_id:params[:second_referee])
+
+    end
+    # TODO check for active match
+
+    render json: "statistics/#{m.id}"
   end
+
+
+
+
 
   private
   def check_match_parameters
@@ -159,16 +184,16 @@ class DataController < ApplicationController
     end
 
     if(name == :host_id || name == :guest_id)
-      return Team.find(id) != nil
+      return Team.find(id) == nil
     elsif(name == :second_referee_id || name == :first_referee_id)
-      return Referee.find(id) != nil
+      return Referee.find(id) == nil
     elsif(name == :city_id)
-      return City.find(id) != nil
+      return City.find(id) == nil
     elsif(name == :hall_id)
-      return Hall.find(id) != nil
+      return Hall.find(id) == nil
     end
 
     puts "UNKNOWN MODEL #{name}"
-    return false
+    return true
   end
 end

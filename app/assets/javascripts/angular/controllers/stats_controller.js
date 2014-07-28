@@ -99,7 +99,7 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
         console.log(response.missing);
         return;
       }
-      else if(respnse.not_found != undefined){
+      else if(response.not_found != undefined){
         alert("Несъществуващи данни!");
         console.log(response.not_found);
         return;

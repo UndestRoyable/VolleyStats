@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715101918) do
+ActiveRecord::Schema.define(version: 20140728074926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,8 @@ ActiveRecord::Schema.define(version: 20140715101918) do
     t.datetime "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "hall_id"
+    t.integer  "scout_id"
   end
 
   add_index "matches", ["match_guest_id"], name: "index_matches_on_match_guest_id", using: :btree
