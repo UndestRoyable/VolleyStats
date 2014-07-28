@@ -1,0 +1,31 @@
+h2 
+  =team.name
+table.tg
+  tr
+    th.tg-031e colspan="2" rowspan="2" 
+    th.tg-hgcj Стартира от
+    th.tg-hgcj colspan="3"  Tочки
+    th.tg-hgcj colspan="3"  Сервис
+    th.tg-hgcj colspan="3"  Посрещане
+    th.tg-hgcj colspan="5"  Атака
+    th.tg-e3zv BK&nbsp;
+  tr
+    td.tg-031e зона
+    td.tg-s6z2 Oбщо
+    td.tg-s6z2 BP
+    td.tg-s6z2 W-L
+    td.tg-s6z2 Общо
+    td.tg-s6z2 Грешки
+    td.tg-s6z2 Aсове
+    td.tg-s6z2 Общо
+    td.tg-s6z2 Грешки
+    td.tg-s6z2 Ефективност(%)
+    td.tg-s6z2 Общо
+    td.tg-s6z2 Грешки
+    td.tg-s6z2 Блокади
+    td.tg-s6z2 Точки
+    td.tg-s6z2 Ефективност(%)
+    td.tg-s6z2 Общо
+  -for player in team.players do 
+      =render partial: "table_row", locals:{player:player}
+  

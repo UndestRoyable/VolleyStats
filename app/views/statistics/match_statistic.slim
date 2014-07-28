@@ -1,2 +1,108 @@
-- match = @match
-=match.hall.city.name
+- stylesheet "styles"
+
+- stylesheet "jquery-ui"
+- stylesheet "statistic"
+- javascript "jquery-ui.min"
+
+
+.container
+  =stylesheet_link_tag "statistic-table"
+  table#left.tg
+    tr
+      th.tg-tqq2 Дата/час
+      th.tg-i6b7 25/07/2014 - 10:20
+    tr
+      td.tg-tqq2 Зала
+      td.tg-i6b7 Арена Армеец
+    tr
+      td.tg-tqq2 Град
+      td.tg-2rms София
+    tr
+      td.tg-tqq2 Брой зрители
+      td.tg-2rms 250
+    tr
+      td.tg-78nc colspan="2"  Съдии
+    tr
+      td.tg-hy7a Първи съдя
+      td.tg-hy7a Втори съдя
+  = stylesheet_link_tag "statistic-table1"
+    
+  table#right.tg
+    tr
+      th.tg-lz1j Гейм №
+      th.tg-0qhn Продължителност
+      th.tg-0qhn colspan="3"  Междинен резуллтат
+      th.tg-0qhn Резултат след края на гейма
+    tr
+      td.tg-wyfo 1
+      td.tg-lhfu 25'
+      td.tg-lhfu 8-6
+      td.tg-lhfu 16-11
+      td.tg-lhfu 21-18
+      td.tg-lhfu 25-21
+    tr
+      td.tg-wyfo 2
+      td.tg-lhfu 26'
+      td.tg-lhfu 8-1
+      td.tg-lhfu 16-4
+      td.tg-lhfu 21-9
+      td.tg-lhfu 25-14
+    tr
+      td.tg-wyfo 3
+      td.tg-lhfu 24'
+      td.tg-lhfu 4-8
+      td.tg-lhfu 16-17
+      td.tg-lhfu 21-19
+      td.tg-lhfu 25-17
+    tr
+      td.tg-wyfo 4
+      td.tg-lhfu
+      td.tg-lhfu
+      td.tg-lhfu
+      td.tg-lhfu
+      td.tg-lhfu
+    tr
+      td.tg-wyfo 5
+      td.tg-9qc9
+      td.tg-9qc9
+      td.tg-9qc9
+      td.tg-9qc9
+      td.tg-9qc9
+    tr
+      td.tg-sq21 Общо:
+      td.tg-m8u4 75' /sum/
+      td.tg-d8ej
+      td.tg-d8ej
+      td.tg-d8ej
+      td.tg-m8u4 78-55/sum/
+.tables
+	ul.nav.nav-tabs#games role="tablist"
+	  li.active
+	    a href="#game_1" data-toggle="tab" role = "tab" Гейм №1
+	  li
+	    a href="#game_2" data-toggle="tab" role = "tab" Гейм №2
+	  li
+	    a href="#game_3" data-toggle="tab" role = "tab" Гейм №3
+	  button.btn.btn-default.btn type="button" 
+	    span.glyphicon.glyphicon-plus-sign
+	    | Добави гейм
+	div#game_1.tabdata.active
+	  =render partial: "empty_table", locals:{team:@match.host}
+	  =render partial: "empty_table", locals:{team:@match.guest}
+	div#game_2.tabdata
+	  =render partial: "empty_table", locals:{team:@match.host}
+	  =render partial: "empty_table", locals:{team:@match.guest}
+	div#game_3.tabdata
+	  =render partial: "empty_table", locals:{team:@match.host}
+	  =render partial: "empty_table", locals:{team:@match.guest}
+
+
+
+
+javascript:
+	$('#games a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
+
+	 

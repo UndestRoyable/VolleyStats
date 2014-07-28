@@ -23,4 +23,9 @@ class StatisticsController < ApplicationController
       @angular_controller = 'stats_controller'
     end
   end
+
+  def new_table
+    @team = Team.find(params[:team_id])
+  end
+
 end
