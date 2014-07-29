@@ -44,7 +44,7 @@
     #date.right.datetime
       h2 Дата:
       -date = Time.now.strftime("%d/%m/%Y")
-      .input-append.date data-date="#{date}" data-date-format="dd/mm/yyyy"
+      .input-append.date data-date="#{date}"
         input#dp6.span2 [ng-init="match.date = '#{date}'" ng-model = "match.date" size="16" type="text"]
           span.glyphicon.glyphicon-calendar
     .referees
@@ -94,4 +94,4 @@
     #button
       a.navbar-btn.btn-primary.btn[ng-click='submit_match_info()']  Потвърди информацията
 
-script$('#dp6').datepicker();
+script$('#dp6').datepicker({format: 'dd/mm/yyyy'});
