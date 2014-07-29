@@ -1,6 +1,5 @@
 class StatisticsController < ApplicationController
   layout false, :only => [:add_game]
-  respond_to :json, :only => [:add_game]
 
   before_filter :verify_scout
   before_filter :set_angular_app, only: [:match_data, :match_statistic]
@@ -12,6 +11,12 @@ class StatisticsController < ApplicationController
   def match_statistic
     match_id = params[:match_id]
     @match = Match.find(match_id)
+  end
+
+  def add_game
+    @host = Team.find(params[:host_id])
+    @guest = Team.find(params[:guest_id])
+    @set = params[:set]
   end
 
   private
@@ -35,10 +40,5 @@ class StatisticsController < ApplicationController
         puts "DONT KNOW WHAT CONTROLLER TO USE FOR #{params[:action]}\n" * 5
       end
     end
-  end
-
-  def add_game
-    puts "A" * 100
-    render json:{set:3333, html:"test"}
   end
 end

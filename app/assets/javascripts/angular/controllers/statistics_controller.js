@@ -1,21 +1,35 @@
 angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', function($scope, statsServices) {
   console.log('statistics_controller loaded...');
   $scope.match = {};
-  statsServices.addGame(1,2,4).then(function(response){
-    console.log(response.html);
-    console.log(response.set);
-    console.log(response);
-    return;
-    var tab = $("<li><a role = 'tab' href = '#game_" + response.set +"' data-toggle='tab'>Гейм №" + response.set + "</a>");
+  
+
+  $scope.addNewGame = function(){
+    if($scope.current_set > 4)
+      return;
+    $scope.current_set += 1;
+    statsServices.addGame($scope.host_id, $scope.guest_id, $scope.current_set).then(function(response){
+      processNewSet(response);
+    });
+};
+
+
+  function processNewSet(response){
+    var i = 0;
+    while(response[i] >= '0' && response[i] <= '9')
+      i += 1;
+
+    var set = response.substring(0,i);
+
+    var html = response.substring(set.length);
+
+    var tab = $("<li><a role = 'tab' href = '#game_" + set +"' data-toggle='tab'>Гейм №" + set + "</a>");
     var tabs = $("#games");
 
     tabs.append(tab);
 
     var tables = $("#tables");
-    var table = $("<div id='game_"+response.set +"' class = 'tabdata'>" + response.html + "</div>");
+    var table = $("<div id='game_"+set +"' class = 'tabdata'>" + html + "</div>");
 
     tables.append(table);
-
-    console.log(response);
-  });
+  }
 }]);
