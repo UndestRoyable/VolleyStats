@@ -65,6 +65,14 @@ stats_services.factory('statsServices', ['$http', function($http) {
       });
 
       return promise;
+    },
+
+    addGame: function(host, guest, set) {
+      var promise = $http.post('/api/add_game', {host_id: host, guest_id: guest, set: set} ).then(function(response) {
+        return response.data;
+      });
+
+      return promise;
     }
 
   }

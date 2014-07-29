@@ -1,7 +1,6 @@
--puts "aaaaaaaaaaaaaaa"
 -@host = Team.find(params[:host_id])
 -@guest = Team.find(params[:guest_id])
 -@set = params[:set]
 
-= render partial: "empty_table", locals:{team:@host, set:@set}
-= render partial: "empty_table", locals:{team:@guest, set:@set}
+=render partial: "empty_table", locals:{team:@host, set:@set}
+=render partial: "empty_table", locals:{team:@guest, set:@set}

@@ -1,8 +1,11 @@
 class StatisticsController < ApplicationController
-  layout nil, :only => [:add_game]
+  layout false, :only => [:add_game]
+  respond_to :json, :only => [:add_game]
+
   before_filter :verify_scout
   before_filter :set_angular_app, only: [:match_data, :match_statistic]
   skip_before_filter  :verify_authenticity_token
+
   def match_data
   end
 
@@ -35,11 +38,7 @@ class StatisticsController < ApplicationController
   end
 
   def add_game
-    puts params 
-    puts "a"*100
-    render json: "Hello!"
-    return
+    puts "A" * 100
+    render json:{set:3333, html:"test"}
   end
-
-
 end

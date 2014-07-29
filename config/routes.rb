@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     get 'minutes' => 'data#minutes'
 
     post 'save_match' => 'data#save_match'
-    post '/add_game' => "statistics#add_game"
+    post 'add_game' => "statistics#add_game"
 
   end
 
