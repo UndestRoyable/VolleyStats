@@ -73,17 +73,18 @@ class DataController < ApplicationController
     m.match_guest = match_guest.create(team_id:params[:guest_id],match_id:m.id)
     m.hall_id = params[:hall_id]
     m.scout_id = current_scout.id
-    m.save
+    
 
     if(params.has_key?(:first_referee_id))
-      MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id])
+      m.first_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id]).id
 
     end
 
     if(params.has_key?(:second_referee_id))
-      MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id])
+      m.second_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id]).id
 
     end
+    m.save
     # TODO check for active match
 
     render json: "statistics/#{m.id}"

@@ -12,21 +12,26 @@
   table#left.tg
     tr
       th.tg-tqq2 Дата/час
-      th.tg-i6b7 25/07/2014 - 10:20
+      th.tg-i6b7 
+        = match.date.strftime("%d/%m/%Y - %H:%M")
     tr
       td.tg-tqq2 Зала
-      td.tg-i6b7 Арена Армеец
+      td.tg-i6b7 
+        = match.hall.name
     tr
       td.tg-tqq2 Град
-      td.tg-2rms София
+      td.tg-2rms 
+        = match.hall.city.name
     tr
       td.tg-tqq2 Брой зрители
       td.tg-2rms 250
     tr
       td.tg-78nc colspan="2"  Съдии
     tr
-      td.tg-hy7a Първи съдя
-      td.tg-hy7a Втори съдя
+      td.tg-hy7a
+        = match.first_referee.name
+      td.tg-hy7a 
+        = match.second_referee.name
   = stylesheet_link_tag "statistic-table1"
     
   table#right.tg
