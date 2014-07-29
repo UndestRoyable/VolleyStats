@@ -83,18 +83,18 @@
 	    a href="#game_2" data-toggle="tab" role = "tab" Гейм №2
 	  li
 	    a href="#game_3" data-toggle="tab" role = "tab" Гейм №3
-	  button.btn.btn-default.btn type="button" 
+	  button.btn.btn-default.btn type="button" value='4'
 	    span.glyphicon.glyphicon-plus-sign
 	    | Добави гейм
 	div#game_1.tabdata.active
-	  =render partial: "empty_table", locals:{team:@match.host}
-	  =render partial: "empty_table", locals:{team:@match.guest}
+	  =render partial: "empty_table", locals:{team:@match.host, set:1}
+	  =render partial: "empty_table", locals:{team:@match.guest, set:1}
 	div#game_2.tabdata
-	  =render partial: "empty_table", locals:{team:@match.host}
-	  =render partial: "empty_table", locals:{team:@match.guest}
+	  =render partial: "empty_table", locals:{team:@match.host, set:2}
+	  =render partial: "empty_table", locals:{team:@match.guest, set:2}
 	div#game_3.tabdata
-	  =render partial: "empty_table", locals:{team:@match.host}
-	  =render partial: "empty_table", locals:{team:@match.guest}
+	  =render partial: "empty_table", locals:{team:@match.host, set:3}
+	  =render partial: "empty_table", locals:{team:@match.guest, set:3}
 
 
 

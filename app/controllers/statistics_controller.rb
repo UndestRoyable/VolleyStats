@@ -20,12 +20,21 @@ class StatisticsController < ApplicationController
   def set_angular_app
     if current_scout.present?
       @angular_app = 'stats'
-      @angular_controller = 'stats_controller'
+
+      action = params[:action]
+
+      if(action == "match_data")
+        @angular_controller = 'stats_controller'
+      elsif(action == "match_statistic")
+        @angular_controller = 'statistics_controller'
+      else
+        puts "DONT KNOW WHAT CONTROLLER TO USE FOR #{params[:action]}\n" * 5
+      end
     end
   end
 
   def new_table
     @team = Team.find(params[:team_id])
+    @set = params[:set]
   end
-
 end
