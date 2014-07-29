@@ -76,12 +76,12 @@ class DataController < ApplicationController
     m.save
 
     if(params.has_key?(:first_referee_id))
-      match_referee.create(match_id:m.id,referee_id:params[:first_referee])
+      MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id])
 
     end
 
     if(params.has_key?(:second_referee_id))
-      match_referee.create(match_id:m.id,referee_id:params[:second_referee])
+      MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id])
 
     end
     # TODO check for active match

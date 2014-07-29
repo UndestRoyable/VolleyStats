@@ -1,7 +1,8 @@
 class StatisticsController < ApplicationController
+  layout nil, :only => [:add_game]
   before_filter :verify_scout
   before_filter :set_angular_app, only: [:match_data, :match_statistic]
-
+  skip_before_filter  :verify_authenticity_token
   def match_data
   end
 
@@ -33,8 +34,12 @@ class StatisticsController < ApplicationController
     end
   end
 
-  def new_table
-    @team = Team.find(params[:team_id])
-    @set = params[:set]
+  def add_game
+    puts params 
+    puts "a"*100
+    render json: "Hello!"
+    return
   end
+
+
 end
