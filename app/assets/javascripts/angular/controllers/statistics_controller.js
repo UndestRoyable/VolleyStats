@@ -1,8 +1,18 @@
-angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', function($scope, statsServices) {
+angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', '$parse', function($scope, statsServices, $parse) {
   console.log('statistics_controller loaded...');
   $scope.match = {};
   $scope.match.set = {};
-  $scope.log = function(){console.log($scope.match)}
+
+  $scope.increase = function(field){
+    var model = $parse(field);
+    model.assign($scope, model($scope) + 1);
+  };
+
+  $scope.decrease = function(field){
+    var model = $parse(field);
+    model.assign($scope, model($scope) - 1);
+  };
+
   $scope.addNewGame = function(){
     if($scope.current_set > 4)
       return;
@@ -11,7 +21,6 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
       processNewSet(response);
     });
 };
-
 
   function processNewSet(response){
     var i = 0;

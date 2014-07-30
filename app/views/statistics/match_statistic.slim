@@ -98,11 +98,7 @@
       =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
       =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
     -active = ""
-
-
-
-div ng-click="log()"
-  |Цлик ми бе
+    
 javascript:
 	$('#games a').click(function (e) {
 	  e.preventDefault()
