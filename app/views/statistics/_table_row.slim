@@ -1,45 +1,12 @@
-tr
+-m = "match.set[#{set}].players[#{player.id}]"
+-fields = "zone","points_total","block_points","won_lost","serve_total","serve_errors","serve_aces","reception_total","reception_errors","reception_efficiency","attack_total","attack_errors","attack_blocks","attack_points","attack_efficiency","break_points"
+
+tr[ng-init= "#{m} = {}"]
   td.tg-031e 
     = player.number
   td.tg-031e 
     = player.first_name + " " + player.last_name
-  td.tg-031e въвежда се
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e Пресмята се
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e Пресмята се
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
-  td.tg-031e Пресмята се
-  td.tg-031e
-    span.glyphicon.glyphicon-plus-sign
-    span.glyphicon.glyphicon-minus-sign/
+  
+  -for field_name in fields do
+    =player_field(field_name,m)
+  

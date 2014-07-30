@@ -1,8 +1,8 @@
 angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', function($scope, statsServices) {
   console.log('statistics_controller loaded...');
   $scope.match = {};
-  
-
+  $scope.match.set = {};
+  $scope.log = function(){console.log($scope.match)}
   $scope.addNewGame = function(){
     if($scope.current_set > 4)
       return;
@@ -19,7 +19,8 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
       i += 1;
 
     var set = response.substring(0,i);
-
+    $scope.match.set[set] = {};
+    $scope.match.set[set].players = {};
     var html = response.substring(set.length);
 
     var tab = $("<li><a role = 'tab' href = '#game_" + set +"' data-toggle='tab'>Гейм №" + set + "</a>");

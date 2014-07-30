@@ -1,5 +1,4 @@
 - stylesheet "styles"
-
 - stylesheet "jquery-ui"
 - stylesheet "statistic"
 - javascript "jquery-ui.min"
@@ -7,7 +6,7 @@
 -match = @match
 -current_set = 3
 
-.container [ng-init = "current_set = #{current_set}; host_id = #{match.host.id}; guest_id = #{match.guest.id};"]
+.container [ng-init = "current_set = #{current_set}; host_id = #{match.host.id}; guest_id = #{match.guest.id}; match.set = {}"]
   =stylesheet_link_tag "statistic-table"
   table#left.tg
     tr
@@ -95,14 +94,15 @@
       | Добави гейм
   - active = "active"
   - for i in 0...current_set do
-    div id="game_#{i + 1}" class="tabdata #{active}"
+    div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};"
       =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
       =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
     -active = ""
 
 
 
-
+div ng-click="log()"
+  |Цлик ми бе
 javascript:
 	$('#games a').click(function (e) {
 	  e.preventDefault()

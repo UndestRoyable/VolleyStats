@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_set_score_id: 
+  player_id: 
+  points_total: 1
+  block_points: 1
+  won_lost: 1
+  serve_total: 1
+  serve_errors: 1
+  serve_aces: 1
+  reception_total: 1
+  reception_errors: 1
+  reception_efficiency: 1
+  attack_total: 1
+  attack_errors: 1
+  attack_blocks: 1
+  attack_points: 1
+  attack_efficiency: 1
+  break_points: 1
+
+two:
+  match_set_score_id: 
+  player_id: 
+  points_total: 1
+  block_points: 1
+  won_lost: 1
+  serve_total: 1
+  serve_errors: 1
+  serve_aces: 1
+  reception_total: 1
+  reception_errors: 1
+  reception_efficiency: 1
+  attack_total: 1
+  attack_errors: 1
+  attack_blocks: 1
+  attack_points: 1
+  attack_efficiency: 1
+  break_points: 1

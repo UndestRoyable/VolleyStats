@@ -28,3 +28,6 @@ rails g model match_referee match:references referee:references
 
 rails g model match_set_score match:references set_number:integer host_score:integer guest_score:integer 
 
+
+rails g model player_set_score match_set_score:references player:references points_total:integer block_points:integer won_lost:integer serve_total:integer serve_errors:integer serve_aces:integer reception_total:integer reception_errors:integer reception_efficiency:integer attack_total:integer attack_errors:integer attack_blocks:integer attack_points:integer attack_efficiency:integer break_points:integer
+

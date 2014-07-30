@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729102902) do
+ActiveRecord::Schema.define(version: 20140730082102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,10 +153,37 @@ ActiveRecord::Schema.define(version: 20140729102902) do
     t.integer  "scout_id"
     t.integer  "first_referee_id"
     t.integer  "second_referee_id"
+    t.integer  "spectators"
   end
 
   add_index "matches", ["match_guest_id"], name: "index_matches_on_match_guest_id", using: :btree
   add_index "matches", ["match_host_id"], name: "index_matches_on_match_host_id", using: :btree
+
+  create_table "player_set_scores", force: true do |t|
+    t.integer  "match_set_score_id"
+    t.integer  "player_id"
+    t.integer  "points_total"
+    t.integer  "block_points"
+    t.integer  "won_lost"
+    t.integer  "serve_total"
+    t.integer  "serve_errors"
+    t.integer  "serve_aces"
+    t.integer  "reception_total"
+    t.integer  "reception_errors"
+    t.integer  "reception_efficiency"
+    t.integer  "attack_total"
+    t.integer  "attack_errors"
+    t.integer  "attack_blocks"
+    t.integer  "attack_points"
+    t.integer  "attack_efficiency"
+    t.integer  "break_points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "zone"
+  end
+
+  add_index "player_set_scores", ["match_set_score_id"], name: "index_player_set_scores_on_match_set_score_id", using: :btree
+  add_index "player_set_scores", ["player_id"], name: "index_player_set_scores_on_player_id", using: :btree
 
   create_table "player_teams", force: true do |t|
     t.integer  "player_id"

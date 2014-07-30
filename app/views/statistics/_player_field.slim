@@ -1,0 +1,12 @@
+-m = "#{player_model}.#{field_name}"
+-inputs = ["zone"]
+-calculates = ["reception_efficiency","attack_efficiency","won_lost"]
+td.tg-031e[ng-init = "#{m}=0"]
+	-if(inputs.include?(field_name))
+		|Въвежда се
+	-elsif (calculates.include?(field_name))
+		|Пресмята се
+	-else
+	    span.glyphicon.glyphicon-plus-sign[ng-click = "increase(#{m})"]
+	    span.glyphicon.glyphicon-minus-sign[ng-click = "decrease(#{m})"]/
+   
