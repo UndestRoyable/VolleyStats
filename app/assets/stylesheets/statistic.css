@@ -52,3 +52,16 @@ h2 {
 .tables{
 	margin-bottom: 75px;
 }
+
+table#right tr td input.inner{
+	width:50px;
+}
+
+table#left.tg tr td input.spectators, .zone, table#right tr td input{
+	width:100%;
+	background:rgba(0,0,0,0);
+	border:none;
+	text-align: center;
+	box-shadow: none;
+}
+

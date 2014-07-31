@@ -23,7 +23,9 @@
         = match.hall.city.name
     tr
       td.tg-tqq2 Брой зрители
-      td.tg-2rms 250
+      td.tg-2rms
+         input.spectators name="matchSpectators" ng-model="match.spectators" required="" type="text" ng-pattern="/[1-9]?[0-9]?[0-9]/" /
+
     tr
       td.tg-78nc colspan="2"  Съдии
     tr
@@ -39,41 +41,21 @@
       th.tg-0qhn Продължителност
       th.tg-0qhn colspan="3"  Междинен резуллтат
       th.tg-0qhn Резултат след края на гейма
-    tr
-      td.tg-wyfo 1
-      td.tg-lhfu 25'
-      td.tg-lhfu 8-6
-      td.tg-lhfu 16-11
-      td.tg-lhfu 21-18
-      td.tg-lhfu 25-21
-    tr
-      td.tg-wyfo 2
-      td.tg-lhfu 26'
-      td.tg-lhfu 8-1
-      td.tg-lhfu 16-4
-      td.tg-lhfu 21-9
-      td.tg-lhfu 25-14
-    tr
-      td.tg-wyfo 3
-      td.tg-lhfu 24'
-      td.tg-lhfu 4-8
-      td.tg-lhfu 16-17
-      td.tg-lhfu 21-19
-      td.tg-lhfu 25-17
-    tr
-      td.tg-wyfo 4
-      td.tg-lhfu
-      td.tg-lhfu
-      td.tg-lhfu
-      td.tg-lhfu
-      td.tg-lhfu
-    tr
-      td.tg-wyfo 5
-      td.tg-9qc9
-      td.tg-9qc9
-      td.tg-9qc9
-      td.tg-9qc9
-      td.tg-9qc9
+    - for i in 1 ... 6 do
+      tr 
+        td.tg-wyfo 
+          =i
+        td.tg-lhfu 
+          input name="gameDurationSet_#{i}" ng-model="match.set[#{i}].duration" required="" type="text" ng-pattern="/[1-9]?[0-9]/" /
+        td.tg-lhfu 
+          input.inner name="gamePartial1Set_#{i}" ng-model="match.set[#{i}].partial1" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
+        td.tg-lhfu 
+          input.inner name="gamePartial2Set_#{i}" ng-model="match.set[#{i}].partial2" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
+        td.tg-lhfu 
+          input.inner name="gamePartial3Set_#{i}" ng-model="match.set[#{i}].partial3" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/"/
+        td.tg-lhfu 
+          input name="gameResultSet_#{i}" ng-model="match.set[#{i}].result" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
+
     tr
       td.tg-sq21 Общо:
       td.tg-m8u4 75' /sum/
@@ -97,7 +79,7 @@
     div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};"
       =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
       =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
-    -active = ""
+    -active = ""  
     
 javascript:
 	$('#games a').click(function (e) {

@@ -1,13 +1,25 @@
 -m = "#{player_model}.#{field_name}"
 -inputs = ["zone"]
--calculates = ["reception_efficiency","attack_efficiency","won_lost"]
+-calculates = {"reception_efficiency"=>["reception_total", "reception_errors"],
+	"attack_efficiency"=>["attack_total","attack_errors","attack_blocks", "attack_points"],
+	"won_lost"=>["points_total","block_points"]}
+-f = "" 
+-for i in calculates.keys do
+	-if(calculates[i].include?(field_name))
+		-f = i
+		
 td.tg-031e[ng-init = "#{m}=0"]
-  -if(inputs.include?(field_name))
-    |Въвежда се
-  -elsif (calculates.include?(field_name))
-    |Пресмята се
-  -else
-    span.glyphicon.glyphicon-plus-sign[ng-click = "increase('#{m}')"]
-    ="{{#{m}}}"
-    span.glyphicon.glyphicon-minus-sign[ng-click = "decrease('#{m}')"]/
+  -if(inputs.include?(field_name)) 
+    input.zone name="#{m}" ng-model="#{m}" required="" type="number" min="1" max="6" /
+  -elsif (calculates.has_key?(field_name))
+    = "{{#{m}}}"
+  -else 
+  	-if(f == "")
+  		span.glyphicon.glyphicon-plus-sign[ng-click = "increase('#{m}')"] /
+	    ="{{#{m}}}"
+	    span.glyphicon.glyphicon-minus-sign[ng-click = "decrease('#{m}')"]/
+	-else
+	    span.glyphicon.glyphicon-plus-sign[ng-click = "increase('#{m}','#{f}','#{player_model}')"] /
+	    ="{{#{m}}}"
+	    span.glyphicon.glyphicon-minus-sign[ng-click = "decrease('#{m}','#{f}','#{player_model}')"]/
    

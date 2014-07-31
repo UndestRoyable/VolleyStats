@@ -26,7 +26,7 @@ table.tg
     td.tg-s6z2 Точки
     td.tg-s6z2 Ефективност(%)
     td.tg-s6z2 Общо
-  -for player in team.players do 
+  -for player in team.players.sort{|x,y|x.number<=>y.number} do 
       =render partial: "table_row", locals:{player:player, set:set}
       
   
