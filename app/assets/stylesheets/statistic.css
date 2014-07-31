@@ -65,11 +65,14 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 	box-shadow: none;
 }
 
+
 #legenda{
 	margin-top:45px;
 	margin-left:28%;
 	
 }
 
-
+.glyphicon-plus-sign, .glyphicon-minus-sign{
+	cursor: pointer;
+}
 
