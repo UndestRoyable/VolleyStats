@@ -75,13 +75,6 @@
       span.glyphicon.glyphicon-plus-sign
       | Добави гейм
   - active = "active"
-  - for i in 0...current_set do
-    div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};"
-      =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
-      =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
-    -active = ""   
-
-
 
   table.tg#legenda
     tr
@@ -93,6 +86,16 @@
       td.tg-s6z2 colspan="2"  W-L - Won-Lost
       td.tg-s6z2 colspan="2"  BK - Break Points
 
+  
+  - for i in 0...current_set do
+    div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};"
+      =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
+      =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
+    -active = ""   
+
+
+
+  
     
 javascript:
 	$('#games a').click(function (e) {
