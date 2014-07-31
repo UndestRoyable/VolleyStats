@@ -65,3 +65,6 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 	box-shadow: none;
 }
 
+.glyphicon-plus-sign, .glyphicon-minus-sign{
+	cursor: pointer;
+}

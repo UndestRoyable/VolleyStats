@@ -5,30 +5,31 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
 
   $scope.increase = function(field,calculate, player_model){
     var model = $parse(field);
-    model.assign($scope, model($scope) + 1);
-    change(calculate,player_model)
+    var value = model($scope) + 1;
+    model.assign($scope, value);
+    onChanged(calculate,player_model);
   };
 
   $scope.decrease = function(field,calculate, player_model){
     var model = $parse(field);
-    model.assign($scope, model($scope) - 1);
-    console.log(model)
-    console.log(model($scope))
+    var value = model($scope) - 1;
+    if(value < 0) value = 0;
+    model.assign($scope, value);
     
-    //change(calculate,player_model)
+    onChanged(calculate,player_model);
   };
 
 
-  function change (field,player_model){
+  function onChanged (field,player_model){
     if(typeof(field)==='undefined')
       return;
-    console.log("changing " + field)
-    var value = getValue(field,player_model)
-    console.log(value)
-    var model = $parse(player_model+ "." + field); 
+    console.log("changing " + field);
+    var value = getChangeValue(field,player_model);
+    console.log(value);
+    var model = $parse(player_model+ "." + field);
     model.assign($scope, value);
 
-  };
+  }
 
 
   $scope.addNewGame = function(){
@@ -60,27 +61,49 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
 
     tables.append(table);
   }
-  function getV(field){
-    var model = $parse(field); 
-    return model($scope);
-  };
 
-  function getValue (field,player_model){
+  function getInt(field){
+    return parseInt(getValue(field));
+  }
+
+  function getValue(field){
+    var model = $parse(field);
+    return model($scope);
+  }
+
+  function getChangeValue (field,player_model){
+    var value = 0;
 
     if(field == 'won_lost')
     {
-      return getV(player_model+".points_total") +getV(player_model + ".block_points")
+      value = getInt(player_model+".points_total") + getInt(player_model + ".block_points");
     }
     else if (field == 'attack_efficiency')
     {
-      return 1;
+      value = 1;
     }
     else if (field == 'reception_efficiency')
     {
-      return parseInt(getV(player_model +".reception_total")) / parseInt(getV(player_model + ".reception_errors"));
+      var errors = getInt(player_model + ".reception_errors");
+      var total = getInt(player_model +".reception_total");
+
+      value = errors / total;
+      if(total == errors)
+        value = 0;
+      else if(total === 0 && errors > 0)
+        value = 0;
+      else if(total > 0 && errors === 0)
+        value = 100;
+      else if(errors === 0 && total === 0)
+        value = 0;
+      else if(errors > total)
+        value = 0;
+      else value = 100 - parseInt(value * 100);
     }
-    else alert("Unhandled field " + field)
-  };
+    else alert("Unhandled field " + field);
+
+    return value;
+  }
 
 
 }]);
