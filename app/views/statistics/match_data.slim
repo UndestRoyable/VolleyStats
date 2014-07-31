@@ -50,10 +50,10 @@
     .referees
       h2 Изберете съдии:
       .dropdown.first-ref
-        select[ng-model='match.first_referee_id' ng-options='referee.id as referee.name for referee in first_referees()']
+        select[ng-model='match.first_referee_id' ng-options='referee.id as referee.ref_name for referee in first_referees()']
           option value=""  Изберете първи съдя
       .dropdown.second-ref
-         select[ng-model='match.second_referee_id' ng-options='referee.id as referee.name for referee in second_referees()']
+         select[ng-model='match.second_referee_id' ng-options='referee.id as referee.ref_name for referee in second_referees()']
             option value=""  Изберете втори съдя  
     #players
       .left.players

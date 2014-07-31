@@ -29,7 +29,7 @@ class DataController < ApplicationController
   end
 
   def referees
-    referees = Referee.select("(referees.first_name || ' ' || referees.last_name) as name ,referees.id")
+    referees = Referee.select("(referees.first_name || ' ' || referees.last_name) as ref_name ,referees.id")
     respond_with referees
 
   end
