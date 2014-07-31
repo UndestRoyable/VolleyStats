@@ -49,8 +49,8 @@ h2 {
 .tabdata.active{
 	display:block;
 }
-.tables{
-	margin-bottom: 75px;
+#tables{
+	margin-bottom: 100px;
 }
 
 table#right tr td input.inner{
@@ -64,4 +64,12 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 	text-align: center;
 	box-shadow: none;
 }
+
+#legenda{
+	margin-top:45px;
+	margin-left:28%;
+	
+}
+
+
 
