@@ -1,4 +1,4 @@
-angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', '$parse', function($scope, statsServices, $parse) {
+angular.module('stats').controller('statistics_controller', ['$scope', 'statsServices', '$parse', '$compile', function($scope, statsServices, $parse, $compile) {
   console.log('statistics_controller loaded...');
   $scope.match = {};
   $scope.match.set = {};
@@ -51,15 +51,19 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
     $scope.match.set[set].players = {};
     var html = response.substring(set.length);
 
-    var tab = $("<li><a role = 'tab' href = '#game_" + set +"' data-toggle='tab'>Гейм №" + set + "</a>");
     var tabs = $("#games");
+    var tab = angular.element("<li><a role = 'tab' href = '#game_" + set +"' data-toggle='tab'>Гейм №" + set + "</a>");
 
     tabs.append(tab);
 
+    $compile(tab)($scope);
+
     var tables = $("#tables");
-    var table = $("<div id='game_"+set +"' class = 'tabdata'>" + html + "</div>");
+    var table = angular.element("<div id='game_"+set +"' class = 'tabdata'>" + html + "</div>");
 
     tables.append(table);
+
+    $compile(table)($scope);
   }
 
   function getInt(field){
