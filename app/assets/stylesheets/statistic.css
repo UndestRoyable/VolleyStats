@@ -43,7 +43,8 @@ h2 {
 	width:95%;
 }
 .tabdata{
-	display: none
+	display: none;
+	margin-left:6%;
 
 }
 .tabdata.active{
@@ -68,7 +69,7 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 
 #legenda{
 	margin-top:45px;
-	margin-left:28%;
+	margin-left:35.5%;
 	
 }
 
@@ -76,3 +77,15 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 	cursor: pointer;
 }
 
+#result{
+	margin-left:32%;
+}
+
+input.result{
+	width:35px;
+}
+
+#button{
+	margin-top:25px;
+	margin-left: 42%;
+}

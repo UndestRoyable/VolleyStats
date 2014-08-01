@@ -76,12 +76,12 @@ class DataController < ApplicationController
     
 
     if(params.has_key?(:first_referee_id))
-      m.first_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id]).id
+      m.first_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id]).referee_id
 
     end
 
     if(params.has_key?(:second_referee_id))
-      m.second_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id]).id
+      m.second_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id]).referee_id
 
     end
     m.save

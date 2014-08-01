@@ -19,6 +19,24 @@ class StatisticsController < ApplicationController
     @set = params[:set]
   end
 
+  def save_match
+    puts_keys(params)
+  end
+
+  def puts_keys(holder,nesting = 1)
+
+    for i in holder.keys do
+      if(i.to_s =="statistic")
+        next 
+      end
+      puts "#{' '*nesting}#{i}" 
+      if(holder[i].methods.include?(:keys))
+        puts_keys(holder[i],nesting+1)
+      end
+    end
+
+  end
+
   private
   def verify_scout
     if(current_scout.nil?)

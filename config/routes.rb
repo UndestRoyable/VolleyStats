@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
     post 'save_match' => 'data#save_match'
     post 'add_game' => "statistics#add_game"
-
+    post 'save_match_statistic' => 'statistics#save_match'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

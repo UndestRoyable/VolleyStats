@@ -20,6 +20,7 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
   };
 
 
+
   function onChanged (field,player_model){
     if(typeof(field)==='undefined')
       return;
@@ -40,6 +41,20 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
       processNewSet(response);
     });
 };
+  
+  $scope.submit_match_statistic = function() {
+    console.log('submit_match_statistic');
+    statsServices.submitMatchStatistic($scope.match).then(function(response) {
+      console.log('match submited...');
+      console.log("Response: " + response);
+      //check for errors 
+
+      var protocol = window.location.protocol;
+      var host = window.location.host;
+      var http = protocol + "//" + host + "/";
+      window.location.replace(http + response);
+    });
+  }
 
   function processNewSet(response){
     var i = 0;

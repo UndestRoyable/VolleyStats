@@ -73,9 +73,18 @@ stats_services.factory('statsServices', ['$http', function($http) {
       });
 
       return promise;
+    },
+
+    submitMatchStatistic: function(match) {
+      var promise = $http.post('/api/save_match_statistic', match).then(function(response) {
+        return response.data;
+      });
+
+      return promise;
     }
 
   }
+
 
   return statsServices;
 }]);
