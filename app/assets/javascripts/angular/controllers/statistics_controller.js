@@ -2,6 +2,9 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
   console.log('statistics_controller loaded...');
   $scope.match = {};
   $scope.match.set = {};
+  var split = window.location.pathname.split("/")
+  $scope.match.id = parseInt(split[split.length-1])
+  console.log($scope.match)
 
   $scope.increase = function(field,calculate, player_model){
     var model = $parse(field);

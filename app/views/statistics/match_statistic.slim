@@ -6,13 +6,6 @@
 -match = @match
 -current_set = 3
     
-h2#result 
-  =match.host.name 
-  input.result name="hostResult" ng-model="match.host_result" required="" type="text" ng-pattern="/[1-9]/" /
-  |:
-  input.result name="guestResult" ng-model="match.guest_result" required="" type="text" ng-pattern="/[1-9]/" /
-  =match.guest.name
-  
 
 .container [ng-init = "current_set = #{current_set}; host_id = #{match.host.id}; guest_id = #{match.guest.id}; match.set = {}"]
   =stylesheet_link_tag "statistic-table"
