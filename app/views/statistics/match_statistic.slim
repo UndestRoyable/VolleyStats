@@ -5,110 +5,137 @@
 
 -match = @match
 -current_set = 3
+-max_sets = 5
     
 a#bvf href="http://www.volleyball.bg" 
   =image_tag "bvf_logo.png" 
 
 h3 Българска Федерация по Волейбол
 
+#content_loading.loading style="font-size:30px;margin-left:40%"
+  |Зарежда, моля изчакайте...
 
-.container [ng-init = "current_set = #{current_set}; host_id = #{match.host.id}; guest_id = #{match.guest.id}; match.set = {}"]
-  =stylesheet_link_tag "statistic-table"
-  table#left.tg
-    tr
-      th.tg-tqq2 Дата/час
-      th.tg-i6b7 
-        = match.date.strftime("%d/%m/%Y - %H:%M")
-    tr
-      td.tg-tqq2 Зала
-      td.tg-i6b7 
-        = match.hall.name
-    tr
-      td.tg-tqq2 Град
-      td.tg-2rms 
-        = match.hall.city.name
-    tr
-      td.tg-tqq2 Брой зрители
-      td.tg-2rms
-         input.spectators name="matchSpectators" ng-model="match.spectators" required="" type="text" ng-pattern="/[1-9]?[0-9]?[0-9]/" /
+#content style="display:none"
+  .container[ng-init = "current_set = #{current_set}; host_id = #{match.host.id}; guest_id = #{match.guest.id}; match.set = {}"]
+    =stylesheet_link_tag "statistic-table"
+    #scores
+      h2
+        |{{host_score()}}
+      h2
+        |&nbsp&nbsp:&nbsp&nbsp
+      h2
+        |{{guest_score()}}
+    table#left.tg
+      tr
+        th.tg-tqq2 Дата/час
+        th.tg-i6b7 
+          = match.date.strftime("%d/%m/%Y - %H:%M")
+      tr
+        td.tg-tqq2 Зала
+        td.tg-i6b7 
+          = match.hall.name
+      tr
+        td.tg-tqq2 Град
+        td.tg-2rms 
+          = match.hall.city.name
+      tr
+        td.tg-tqq2 Брой зрители
+        td.tg-2rms
+           input.spectators name="matchSpectators" ng-model="match.spectators" required="" type="text" ng-pattern="/[1-9]?[0-9]?[0-9]/" /
 
-    tr
-      td.tg-78nc colspan="2"  Съдии
-    tr
-      td.tg-hy7a
-        = match.first_referee.name
-      td.tg-hy7a 
-        = match.second_referee.name
-  = stylesheet_link_tag "statistic-table1"
+      tr
+        td.tg-78nc colspan="2"  Съдии
+      tr
+        td.tg-hy7a
+          = match.first_referee.name
+        td.tg-hy7a 
+          = match.second_referee.name
+    = stylesheet_link_tag "statistic-table1"
+      
+    table#right.tg
+      tr
+        th.tg-lz1j Гейм №
+        th.tg-0qhn Продължителност
+        th.tg-0qhn colspan="3"  Междинен резуллтат
+        th.tg-0qhn Резултат след края на гейма
+      - for i in 1 ... max_sets + 1 do
+        tr[ng-show="current_set>#{i-1}"]
+          td.tg-wyfo 
+            =i
+          td.tg-lhfu 
+            input name="gameDurationSet_#{i}" ng-model="match.set[#{i}].duration" required="" type="number" /
+          td.tg-lhfu 
+            input.inner name="gamePartial1Set_#{i}" ng-model="match.set[#{i}].partial1" required="" type="text" ng-change="partial(1, #{i})" /
+          td.tg-lhfu 
+            input.inner name="gamePartial2Set_#{i}" ng-model="match.set[#{i}].partial2" required="" type="text" ng-change="partial(2, #{i})" /
+          td.tg-lhfu 
+            input.inner name="gamePartial3Set_#{i}" ng-model="match.set[#{i}].partial3" required="" type="text" ng-change="partial(3, #{i})"/
+          td.tg-lhfu 
+            input name="gameResultSet_#{i}" ng-model="match.set[#{i}].result" required="" type="text" ng-change="partial(4, #{i})" /
+
+      tr
+        td.tg-sq21 Общо:
+        td.tg-m8u4
+          |{{duration_sum()}}'
+        td.tg-d8ej
+          |{{partial1_sum()}}
+        td.tg-d8ej
+          |{{partial2_sum()}}
+        td.tg-d8ej
+          |{{partial3_sum()}}
+        td.tg-m8u4
+          |{{result_sum()}}
+  .tables#tables
+    ul.nav.nav-tabs#games role="tablist"
+      li.active
+        a href="#game_1" data-toggle="tab" role = "tab" Гейм №1
+      li
+        a href="#game_2" data-toggle="tab" role = "tab" Гейм №2
+      li
+        a href="#game_3" data-toggle="tab" role = "tab" Гейм №3
+      button.btn.btn-default.btn type="button" ng-click = "addNewGame()"
+        span.glyphicon.glyphicon-plus-sign
+        | Добави гейм
+      span#new_game.loading style="display:none"
+        |Зарежда, моля изчакайте...
+
+    - active = "active"
+
+    table.tg#legenda
+      tr
+        th.tg-s6z2 colspan="6" 
+          | Легенда
+          br/
+      tr
+        td.tg-s6z2 colspan="2"  BP - блокади
+        td.tg-s6z2 colspan="2"  W-L - Won-Lost
+        td.tg-s6z2 colspan="2"  BK - Break Points
+
     
-  table#right.tg
-    tr
-      th.tg-lz1j Гейм №
-      th.tg-0qhn Продължителност
-      th.tg-0qhn colspan="3"  Междинен резуллтат
-      th.tg-0qhn Резултат след края на гейма
-    - for i in 1 ... 6 do
-      tr 
-        td.tg-wyfo 
-          =i
-        td.tg-lhfu 
-          input name="gameDurationSet_#{i}" ng-model="match.set[#{i}].duration" required="" type="text" ng-pattern="/[1-9]?[0-9]/" /
-        td.tg-lhfu 
-          input.inner name="gamePartial1Set_#{i}" ng-model="match.set[#{i}].partial1" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
-        td.tg-lhfu 
-          input.inner name="gamePartial2Set_#{i}" ng-model="match.set[#{i}].partial2" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
-        td.tg-lhfu 
-          input.inner name="gamePartial3Set_#{i}" ng-model="match.set[#{i}].partial3" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/"/
-        td.tg-lhfu 
-          input name="gameResultSet_#{i}" ng-model="match.set[#{i}].result" required="" type="text" ng-pattern="/[1-9]?[0-9]-[1-9]?[0-9]/" /
+    - for i in 0...current_set do
+      div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};match.set[#{i + 1}].duration = 0; match.set[#{i + 1}].partial1 = '0-0'; match.set[#{i + 1}].partial2 = '0-0'; match.set[#{i + 1}].partial3 = '0-0'; match.set[#{i + 1}].result = '0-0';"
+        =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
+        =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
+      -active = ""   
 
-    tr
-      td.tg-sq21 Общо:
-      td.tg-m8u4 75' /sum/
-      td.tg-d8ej
-      td.tg-d8ej
-      td.tg-d8ej
-      td.tg-m8u4 78-55/sum/
-.tables#tables
-  ul.nav.nav-tabs#games role="tablist"
-    li.active
-      a href="#game_1" data-toggle="tab" role = "tab" Гейм №1
-    li
-      a href="#game_2" data-toggle="tab" role = "tab" Гейм №2
-    li
-      a href="#game_3" data-toggle="tab" role = "tab" Гейм №3
-    button.btn.btn-default.btn type="button" ng-click = "addNewGame()"
-      span.glyphicon.glyphicon-plus-sign
-      | Добави гейм
-  - active = "active"
+   
+    #button
+      a.navbar-btn.btn-success.btn[ng-click='submit_match_statistic()']  Потвърди информацията
 
-  table.tg#legenda
-    tr
-      th.tg-s6z2 colspan="6" 
-        | Легенда
-        br/
-    tr
-      td.tg-s6z2 colspan="2"  BP - блокади
-      td.tg-s6z2 colspan="2"  W-L - Won-Lost
-      td.tg-s6z2 colspan="2"  BK - Break Points
-
-  
-  - for i in 0...current_set do
-    div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};"
-      =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
-      =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
-    -active = ""   
-
- 
-  #button
-    a.navbar-btn.btn-success.btn[ng-click='submit_match_statistic()']  Потвърди информацията
-
-  
     
-javascript:
-	$('#games a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
+      
+  javascript:
+  	$('#games a').click(function (e) {
+  	  e.preventDefault()
+  	  $(this).tab('show')
+  	})
 
-	 
+    function onLoaded(elementSelector){
+      $(elementSelector +"_loading").hide();
+      var element = $(elementSelector);
+      
+      if(element.is(":visible"))
+        return;
+
+      element.show();
+    }

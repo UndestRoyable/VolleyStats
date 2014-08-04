@@ -104,6 +104,10 @@ angular.module('stats').controller('stats_controller', ['$scope', 'statsServices
         console.log(response.not_found);
         return;
       }
+      else if(response.active_match != undefined){
+        alert("Вече имате активен мач!");
+        return;
+      }
 
       var protocol = window.location.protocol;
       var host = window.location.host;

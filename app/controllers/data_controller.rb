@@ -63,6 +63,11 @@ class DataController < ApplicationController
       return
     end
 
+    if(current_scout.active_match_id != nil)
+      render json:{active_match:true}
+      return
+    end
+
     d = Date.strptime(params[:date], "%d/%m/%Y")
     m = Match.new()
     m.date = (DateTime.new(d.year,d.month,d.day,params[:hours],params[:minutes]))
@@ -73,26 +78,22 @@ class DataController < ApplicationController
     m.match_guest = match_guest.create(team_id:params[:guest_id],match_id:m.id)
     m.hall_id = params[:hall_id]
     m.scout_id = current_scout.id
-    
 
     if(params.has_key?(:first_referee_id))
       m.first_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:first_referee_id]).referee_id
-
     end
 
     if(params.has_key?(:second_referee_id))
       m.second_referee_id=MatchReferee.create(match_id:m.id,referee_id:params[:second_referee_id]).referee_id
-
     end
+
+    current_scout.active_match_id = m.id
+    current_scout.save
     m.save
     # TODO check for active match
 
     render json: "statistics/#{m.id}"
   end
-
-
-
-
 
   private
   def check_match_parameters

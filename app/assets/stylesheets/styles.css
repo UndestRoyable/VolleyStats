@@ -9,13 +9,10 @@ background:url('bg.jpg');
     .jumbotron
       h1{
 	color: white;
-  
 
 }
 .container p{
 	color:white;
-
-
 }
 
 .container a{
@@ -23,16 +20,9 @@ background:url('bg.jpg');
 	border-color:white;
 	border-width: 2px;
 	background-color:transparent; 
-
-
 }
 .container2 {
 	padding-left: 105px;
 	padding-right: 105px;
-	
 
 }
-
-
-
-

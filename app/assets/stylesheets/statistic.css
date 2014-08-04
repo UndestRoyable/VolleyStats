@@ -16,16 +16,19 @@ h2 {
 
 
 }
+
+#left, #right{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #right{
-	margin-top:2%;
 	float:right;
 	margin-right:-6%;
 }
+
 .container #left{
 	float:left;
-	margin-left:-5%%;
-	margin-top:3%;
-
 }
 
 .container #left tr td, .container #left tr th{
@@ -98,4 +101,13 @@ a#bvf{
 h3{
 	float:right;
 	margin-right: 33%;
+}
+
+
+#scores{
+  margin-left: 45%;
+}
+
+#scores h2{
+  display: inline-block;
 }
