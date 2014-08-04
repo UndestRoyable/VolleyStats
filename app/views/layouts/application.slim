@@ -1,4 +1,5 @@
 DOCTYPE html
+- is_scout_page = params[:controller] != "main" && params[:controller] != "user_view" && current_scout.present?
 html
   head
     title
@@ -7,8 +8,7 @@ html
     = javascript_include_tag "jquery"
     = javascript_include_tag "bootstrap.min"
     = javascript_include_tag "extentions"
-    
-    -if(params[:controller] != "main" && current_scout.present?)
+    -if(is_scout_page)
       = javascript_include_tag "application"
       = stylesheet_link_tag "application"
     = yield(:stylesheets)
@@ -16,60 +16,63 @@ html
     = csrf_meta_tags
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
-  body[ng-app="#{@angular_app}" ng-controller="#{@angular_controller}"]
-    -margin="margin-right:5px;"
-    .navbar.navbar-inverse.navbar-static-top
-      .container
-        a.navbar-brand href="/index"  VolleyStats
-        button.navbar-toggle data-target=".navHeaderCollapse" data-toggle="collapse"
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        .collapse.navbar-collapse.navHeaderCollapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a href="/index"
-                span.glyphicon.glyphicon-home style="#{margin}"
-                | Home
-            li
-              a href="/about-us"
-                span.glyphicon.glyphicon-info-sign style="#{margin}"
-                | За нас
-            li.dropdown
-              a.dropdown-toggle data-toggle="dropdown" href="#"
-                span.glyphicon.glyphicon-stats style="#{margin}"
-                | Статистики
-                b.caret
-              ul.dropdown-menu
-                li
-                  a href="/view/filter/0"  На отбор
-                li
-                  a href="/view/filter/1"  На играч
-                li
-                  a href="/view/filter/2"  За период от време
-            li
-              -if(current_scout.nil?)
-                a href="/login"
-                  span.glyphicon.glyphicon-user style="#{margin}"
-                  | Вход
-              -else
-                a href="/logout"
-                  span.glyphicon.glyphicon-user style="#{margin}"
-                  | Изход
-            li
-              a href="/match-data"
-                span.glyphicon.glyphicon-list-alt style="#{margin}"
-                | Води статистика
-            li
-              a href="/contact-us"
-                span.glyphicon.glyphicon-phone-alt style="#{margin}"
-                | За контакти
-    = yield
+  -if(is_scout_page)
+    body[ng-app="#{@angular_app}" ng-controller="#{@angular_controller}"]
+  -else
+    body
+  -margin="margin-right:5px;"
+  .navbar.navbar-inverse.navbar-static-top
+    .container
+      a.navbar-brand href="/index"  VolleyStats
+      button.navbar-toggle data-target=".navHeaderCollapse" data-toggle="collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      .collapse.navbar-collapse.navHeaderCollapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href="/index"
+              span.glyphicon.glyphicon-home style="#{margin}"
+              | Home
+          li
+            a href="/about-us"
+              span.glyphicon.glyphicon-info-sign style="#{margin}"
+              | За нас
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              span.glyphicon.glyphicon-stats style="#{margin}"
+              | Статистики
+              b.caret
+            ul.dropdown-menu
+              li
+                a href="/view/filter/team"  На отбор
+              li
+                a href="/view/filter/player"  На играч
+              li
+                a href="/view/filter/range"  За период от време
+          li
+            -if(current_scout.nil?)
+              a href="/login"
+                span.glyphicon.glyphicon-user style="#{margin}"
+                | Вход
+            -else
+              a href="/logout"
+                span.glyphicon.glyphicon-user style="#{margin}"
+                | Изход
+          li
+            a href="/match-data"
+              span.glyphicon.glyphicon-list-alt style="#{margin}"
+              | Води статистика
+          li
+            a href="/contact-us"
+              span.glyphicon.glyphicon-phone-alt style="#{margin}"
+              | За контакти
+  = yield
 
-    .navbar.navbar-default.navbar-fixed-bottom
-      .container2
-       p.navbar-text.pull-left Copyright 2014 © Мирослав Маринов, Илия Никушев. Всички права запазени.
-       a.navbar-btn.btn-primary.btn.pull-right href="http://goo.gl/D4HZSz"  Намерете ни във Facebook
+  .navbar.navbar-default.navbar-fixed-bottom
+    .container2
+     p.navbar-text.pull-left Copyright 2014 © Мирослав Маринов, Илия Никушев. Всички права запазени.
+     a.navbar-btn.btn-primary.btn.pull-right href="http://goo.gl/D4HZSz"  Намерете ни във Facebook
 
 
 

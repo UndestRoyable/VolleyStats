@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   get '/view/:match_id' =>"user_view#view"
-  get '/view/filter/:filter_id' =>"user_view#filter"
+  get '/view/filter/:filter_name' =>"user_view#filter"
   post '/view/filtered' =>"user_view#get_filtered"
 
   scope 'api' do

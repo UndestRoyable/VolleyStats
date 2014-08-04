@@ -1,3 +1,8 @@
+-parameters = [:guest_name, :id, :host_name]
 -for m in collection do
-  div
-    ="FILTERED MATCH #{m.id}"
+  -additional = ""
+  -for i in m.attributes.keys.select{|x| !parameters.include?(x.to_sym)} do
+    -additional += " #{m[i]} "
+  div.result
+    a href= "/view/#{m.id}"
+      ="#{m.host_name} vs #{m.guest_name} #{additional}"

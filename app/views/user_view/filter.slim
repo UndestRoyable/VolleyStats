@@ -1,23 +1,17 @@
--id = @id
--filter_name = ""
--if(id == 0) #player
-  -filter_name = "filter_player"
--elsif(id == 1) #range
-  -filter_name = "filter_range"
--elsif(id == 2) #team
-  -filter_name = "filter_team"
+-filter_name = @filter_name
 
 #filter_data
-  =render partial: filter_name
-button onclick="filter(#{id})"
+  =render partial: "filter_#{filter_name}"
+button onclick="filter()"
   |FILTER
 #results
   |DATA GETS FILLED HERE BY JAVASCRIPT
 
 javascript:
-  function filter(filter){
-  var data = [name:"test"];
-    $http.post('/view/filtered', {filter:filter, data:data}).then(function (response) {
-        console.log(response);
-      });
-  }
+  function filter(){
+    var data = getData();
+      $.post('/view/filtered', {filter:"#{filter_name}", data:data}).then(function (response) {
+          $(results).empty();
+          $(results).append($(response));
+        });
+    }

@@ -11,7 +11,9 @@
 
 -sets = MatchSetScore.where(match_id:match.id)
 
--for i in sets do 
+-for i in sets do
+  -if(i.host_score == i.guest_score)
+    -next
   -if(i.host_score > i.guest_score)
     -host_score += 1
   -else
