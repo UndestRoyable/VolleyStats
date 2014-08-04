@@ -1,13 +1,13 @@
 class UserViewController < ApplicationController
-  layout false, :only => [:filter]
-
+  layout false, :only => [:get_filtered]
 
   def view
     @match = Match.find(params[:match_id])
   end
 
   def filter
-    if(id < 0 || id > 3)
+    @id = params[:filter_id].to_i
+    if(@id < 0 || @id > 3)
       render json:{not_existing:true}
       return
     end

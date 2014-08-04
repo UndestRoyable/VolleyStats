@@ -1,10 +1,23 @@
--id = params[:filter_id]
+-id = @id
+-filter_name = ""
 -if(id == 0) #player
-  -filter = "filter_player"
+  -filter_name = "filter_player"
 -elsif(id == 1) #range
-  -filter = "filter_range"
+  -filter_name = "filter_range"
 -elsif(id == 2) #team
-  -filter = "filter_team"
-=render partial:filter
+  -filter_name = "filter_team"
+
+#filter_data
+  =render partial: filter_name
 button onclick="filter(#{id})"
   |FILTER
+#results
+  |DATA GETS FILLED HERE BY JAVASCRIPT
+
+javascript:
+  function filter(filter){
+  var data = [name:"test"];
+    $http.post('/view/filtered', {filter:filter, data:data}).then(function (response) {
+        console.log(response);
+      });
+  }

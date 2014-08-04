@@ -41,7 +41,7 @@ h3 Българска Федерация по Волейбол
       tr
         td.tg-tqq2 Брой зрители
         td.tg-2rms
-           input.spectators name="matchSpectators" ng-model="match.spectators" required="" type="text" ng-pattern="/[1-9]?[0-9]?[0-9]/" /
+           input.spectators name="matchSpectators" ng-model="match.spectators" required="" type="number" min="0" /
 
       tr
         td.tg-78nc colspan="2"  Съдии
@@ -63,7 +63,7 @@ h3 Българска Федерация по Волейбол
           td.tg-wyfo 
             =i
           td.tg-lhfu 
-            input name="gameDurationSet_#{i}" ng-model="match.set[#{i}].duration" required="" type="number" /
+            input name="gameDurationSet_#{i}" ng-model="match.set[#{i}].duration" required="" type="number" min="0" /
           td.tg-lhfu 
             input.inner name="gamePartial1Set_#{i}" ng-model="match.set[#{i}].partial1" required="" type="text" ng-change="partial(1, #{i})" /
           td.tg-lhfu 
