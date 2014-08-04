@@ -5,7 +5,6 @@
   .jumbotron
     .left.team
       h2 Отбор домакин:
-
       .dropdown
         select[ng-model='host' ng-options='team.name for team in host_teams()' ng-change='host_team_changed()' ]
           option value=""  Изберете отбор домакин

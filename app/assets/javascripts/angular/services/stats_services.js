@@ -17,6 +17,13 @@ stats_services.factory('statsServices', ['$http', function($http) {
 
       return promise;
     },
+    getTeamPlayers:function(team_id){
+      var promise = $http.get('/api/team_players').then(function (response) {
+        return response.data;
+      });
+
+      return promise;
+    },
 
     getCities:function(){
       var promise = $http.get('/api/cities').then(function (response) {

@@ -1,5 +1,6 @@
 DOCTYPE html
 - is_scout_page = params[:controller] != "main" && params[:controller] != "user_view" && current_scout.present?
+- is_required = params[:filter_name] == "player" && params[:controller] == "user_view"
 html
   head
     title
@@ -8,7 +9,7 @@ html
     = javascript_include_tag "jquery"
     = javascript_include_tag "bootstrap.min"
     = javascript_include_tag "extentions"
-    -if(is_scout_page)
+    -if(is_scout_page || is_required)
       = javascript_include_tag "application"
       = stylesheet_link_tag "application"
     = yield(:stylesheets)
@@ -16,7 +17,7 @@ html
     = csrf_meta_tags
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
-  -if(is_scout_page)
+  -if(is_scout_page || is_required)
     body[ng-app="#{@angular_app}" ng-controller="#{@angular_controller}"]
   -else
     body

@@ -38,6 +38,8 @@ Rails.application.routes.draw do
     get 'hours' => 'data#hours'
     get 'minutes' => 'data#minutes'
 
+    get 'team_players' => 'user_view#team_players'
+
     post 'save_match' => 'data#save_match'
     post 'add_game' => "statistics#add_game"
     post 'save_match_statistic' => 'statistics#save_match'
