@@ -1,2 +1,9 @@
-select
-  option NAME
+select#team
+  -for t in Team.all do
+    option value= "#{t.id}"
+      =t.name
+
+javascript:
+  function getData(){
+    return {team:$("#team option:selected").val()}
+  }

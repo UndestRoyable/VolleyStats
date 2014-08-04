@@ -40,7 +40,9 @@ class UserViewController < ApplicationController
         criteria += "matches.date <= '#{to}'"
       end
       additional = ", matches.date"
-    elsif(filter == "team")  
+    elsif(filter == "team") 
+      criteria = "guest.id = #{params[:data][:team]} or host.id = #{params[:data][:team]}"
+      additional = ", matches.date"
     end
 
     @filtered_result = Match.
