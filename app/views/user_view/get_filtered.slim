@@ -1,0 +1,5 @@
+-id = params[:filter_id]
+
+-filtered_result = Match.all
+
+=render partial:"user_select", locals:{collection:filtered_result}

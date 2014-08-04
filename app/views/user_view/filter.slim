@@ -1,0 +1,10 @@
+-id = params[:filter_id]
+-if(id == 0) #player
+  -filter = "filter_player"
+-elsif(id == 1) #range
+  -filter = "filter_range"
+-elsif(id == 2) #team
+  -filter = "filter_team"
+=render partial:filter
+button onclick="filter(#{id})"
+  |FILTER

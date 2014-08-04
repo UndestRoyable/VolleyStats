@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     get 'logout' => 'session#destroy', :as => 'logout'
   end
 
+  get '/view/:match_id' =>"user_view#view"
+  post '/view/filter/:filter_id' =>"user_view#filter"
+
   scope 'api' do
     get 'teams' => 'data#teams'
     get 'players/:team_id' => 'data#players_of_team'

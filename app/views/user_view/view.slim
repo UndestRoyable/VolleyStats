@@ -1,0 +1,135 @@
+- stylesheet "styles"
+- stylesheet "jquery-ui"
+- stylesheet "statistic"
+- javascript "jquery-ui.min"
+
+-match = @match
+-match_host = match.match_host
+-match_guest = match.match_guest
+-host_score = 0
+-guest_score = 0
+
+-sets = MatchSetScore.where(match_id:match.id)
+
+-for i in sets do 
+  -if(i.host_score > i.guest_score)
+    -host_score += 1
+  -else
+    -guest_score += 1
+    
+a#bvf href="http://www.volleyball.bg" 
+  =image_tag "bvf_logo.png" 
+
+h3 Българска Федерация по Волейбол
+
+.container
+  =stylesheet_link_tag "statistic-table"
+  #scores
+    h2
+      =host_score
+    h2
+      |&nbsp&nbsp:&nbsp&nbsp
+    h2
+      =guest_score
+  table#left.tg
+    tr
+      th.tg-tqq2 Дата/час
+      th.tg-i6b7 
+        = match.date.strftime("%d/%m/%Y - %H:%M")
+    tr
+      td.tg-tqq2 Зала
+      td.tg-i6b7 
+        = match.hall.name
+    tr
+      td.tg-tqq2 Град
+      td.tg-2rms 
+        = match.hall.city.name
+    tr
+      td.tg-tqq2 Брой зрители
+      td.tg-2rms
+         = match.spectators
+
+    tr
+      td.tg-78nc colspan="2"  Съдии
+    tr
+      td.tg-hy7a
+        = match.first_referee.name
+      td.tg-hy7a 
+        = match.second_referee.name
+  = stylesheet_link_tag "statistic-table1"
+    
+  table#right.tg
+    tr
+      th.tg-lz1j Гейм №
+      th.tg-0qhn Продължителност
+      th.tg-0qhn colspan="3"  Междинен резуллтат
+      th.tg-0qhn Резултат след края на гейма
+    -duration = 0
+    -partials = {1=>[0,0], 2=>[0,0], 3=>[0,0]}
+    -result = [0,0]
+    - for set in sets do
+      tr
+        td.tg-wyfo 
+          =set.number
+        td.tg-lhfu 
+          -duration += set.duration
+          ="#{set.duration}'"
+        -for i in 1...4 do
+          -set_break = "set#{set.number}_break"
+          td.tg-lhfu 
+            -partials[i][0] = match_host[set_break+i.to_s]
+            -partials[i][1] = match_guest[set_break+i.to_s]
+            =match_host[set_break + i.to_s].to_s + "-" + match_guest[set_break + i.to_s].to_s
+        td.tg-lhfu 
+          -result[0] += set.host_score
+          -result[1] += set.guest_score
+          ="#{set.host_score}-#{set.guest_score}"
+
+    tr
+      td.tg-sq21 Общо:
+      td.tg-m8u4
+        ="#{duration}'"
+      -for partial in partials.keys do
+        td.tg-d8ej
+          ="#{partial[0]} - #{partial[1]}"
+      td.tg-m8u4
+        ="#{result[0]} - #{result[1]}"
+.tables#tables
+  ul.nav.nav-tabs#games role="tablist"
+    li.active
+      a href="#game_1" data-toggle="tab" role = "tab" Гейм №1
+    -for set in sets do
+      -if(set.number == 1)
+        -next
+      li
+        a href="#game_#{set.number}" data-toggle="tab" role = "tab"
+          ="Гейм#{set.number}"
+
+  - active = "active"
+
+  table.tg#legenda
+    tr
+      th.tg-s6z2 colspan="6" 
+        | Легенда
+        br/
+    tr
+      td.tg-s6z2 colspan="2"  BP - блокади
+      td.tg-s6z2 colspan="2"  W-L - Won-Lost
+      td.tg-s6z2 colspan="2"  BK - Break Points
+
+  -host_team = match.host
+  -guest_team = match.guest
+  -host_players = host_team.players
+  -guest_players = guest_team.players
+
+  - for set in sets do
+    div id="game_#{set.number}" class="tabdata #{active}"
+      =render partial: "filled_table", locals:{team:host_team, scores:PlayerSetScore.where(match_set_score:set.id, player_id:host_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number") }
+      =render partial: "filled_table", locals:{team:guest_team, scores:PlayerSetScore.where(match_set_score:set.id, player_id:guest_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number")}
+    -active = ""   
+    
+javascript:
+  $('#games a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
