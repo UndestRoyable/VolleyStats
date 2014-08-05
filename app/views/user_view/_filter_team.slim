@@ -1,9 +1,11 @@
-select#team
-  -for t in Team.all do
-    option value= "#{t.id}"
-      =t.name
+-stylesheet "filter"
+div.selectteam
+	select#team
+	  -for t in Team.all do
+	    option value= "#{t.id}"
+	      =t.name
 
 javascript:
   function getData(){
-    return {team:$("#team option:selected").val()}
+    return {team:$("#team").select2('data').text}
   }

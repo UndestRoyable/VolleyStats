@@ -111,12 +111,12 @@ h3 Българска Федерация по Волейбол
         td.tg-s6z2 colspan="2"  W-L - Won-Lost
         td.tg-s6z2 colspan="2"  BK - Break Points
 
-    
-    - for i in 0...current_set do
-      div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};match.set[#{i + 1}].duration = 0; match.set[#{i + 1}].partial1 = '0-0'; match.set[#{i + 1}].partial2 = '0-0'; match.set[#{i + 1}].partial3 = '0-0'; match.set[#{i + 1}].result = '0-0';"
-        =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
-        =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
-      -active = ""   
+    div#gamesholder
+      - for i in 0...current_set do
+        div id="game_#{i + 1}" class="tabdata #{active}" ng-init="match.set[#{i+1}] = {}; match.set[#{i+1}].players = {};match.set[#{i + 1}].duration = 0; match.set[#{i + 1}].partial1 = '0-0'; match.set[#{i + 1}].partial2 = '0-0'; match.set[#{i + 1}].partial3 = '0-0'; match.set[#{i + 1}].result = '0-0';"
+          =render partial: "empty_table", locals:{team:@match.host, set:i + 1}
+          =render partial: "empty_table", locals:{team:@match.guest, set: i + 1}
+        -active = ""   
 
    
     #button

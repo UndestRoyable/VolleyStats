@@ -1,8 +1,10 @@
-select[ng-model='current_team' ng-options='team.id as team.name for team in teams' ng-change='onTeamSelect()' ]
-  option value=""   Изберете отбор 
+-stylesheet "filter"
+div.playerteam
+	select[ng-model='current_team' ng-options='team.id as team.name for team in teams' ng-change='onTeamSelect()' ]
+	  option value=""   Изберете отбор 
 
-select#player[ng-model='player' ng-options='player.id as player.name for player in currentPlayers']
-  option value="" selected="selected"  Изберете името на играч
+	select#player[ng-model='player' ng-options='player.id as player.name for player in currentPlayers']
+	  option value="" selected="selected"  Изберете името на играч
     
 javascript:
   var p = [];

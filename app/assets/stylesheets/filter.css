@@ -1,0 +1,22 @@
+button.navbar-btn.btn-primary.btn{
+	margin-left:43%;
+	margin-top:15px;
+}
+
+.container#data {
+	display: inline-block;
+	margin-left:26%;
+}
+
+div.from, div.to{
+	display: inline-block;
+
+	margin-right: 5%
+}
+
+div.selectteam{
+	margin-left:42.7%;
+}
+div.playerteam{
+	margin-left:35%;
+}

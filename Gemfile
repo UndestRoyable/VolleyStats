@@ -29,6 +29,7 @@ gem 'hirb'
 gem 'devise'
 gem 'activeadmin',         github: 'gregbell/active_admin'
 gem 'slim'
+gem 'prawn'
 
 
 # Use ActiveModel has_secure_password

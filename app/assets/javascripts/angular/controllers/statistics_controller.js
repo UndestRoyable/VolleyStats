@@ -232,7 +232,7 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
 
     $compile(tab)($scope);
 
-    var tables = $("#tables");
+    var tables = $("#gamesholder");
     var table = angular.element("<div id='game_"+set +"' class = 'tabdata'>" + html + "</div>");
 
     tables.append(table);

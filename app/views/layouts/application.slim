@@ -1,6 +1,6 @@
 DOCTYPE html
 - is_scout_page = params[:controller] != "main" && params[:controller] != "user_view" && current_scout.present?
-- is_required = params[:filter_name] == "player" && params[:controller] == "user_view"
+- is_required = params[:filter_name] == "player" && params[:controller] == "user_view"||params[:filter_name]== "team"
 html
   head
     title

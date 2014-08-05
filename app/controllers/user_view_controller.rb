@@ -46,16 +46,16 @@ class UserViewController < ApplicationController
     elsif(filter=="range")
       if(params[:data][:from][:date] != "")
         f = DateTime.strptime(params[:data][:from][:date], "%d/%m/%Y")
-        hour = params[:data][:from][:hour].to_i
-        minute = params[:data][:from][:minute].to_i
+        hour = 1
+        minute = 0
         from = DateTime.new(f.year,f.month,f.day,hour,minute)
         criteria += "matches.date >= '#{from}'"
       end
       if(params[:data][:to][:date] != "")
         t = DateTime.strptime(params[:data][:to][:date], "%d/%m/%Y")
 
-        hour = params[:data][:to][:hour].to_i
-        minute = params[:data][:to][:minute].to_i
+        hour = 23
+        minute = 59
         to = DateTime.new(t.year,t.month,t.day,hour,minute)
         if(criteria != "")
           criteria += " and "
@@ -64,7 +64,9 @@ class UserViewController < ApplicationController
       end
       additional = ", matches.date"
     elsif(filter == "team") 
-      criteria = "guest.id = #{params[:data][:team]} or host.id = #{params[:data][:team]}"
+      team = Team.where(name: params[:data][:team]).first.id
+
+      criteria = "guest.id = #{team} or host.id = #{team}"
       additional = ", matches.date"
     end
 

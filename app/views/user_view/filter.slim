@@ -1,11 +1,12 @@
 -filter_name = @filter_name
+-stylesheet "filter"
 
-#filter_data
-  =render partial: "filter_#{filter_name}"
-button onclick="filter()"
-  |FILTER
-#results
-  |DATA GETS FILLED HERE BY JAVASCRIPT
+
+=render partial: "filter_#{filter_name}"
+button.navbar-btn.btn-primary.btn onclick="filter()"
+  |Филтрирай
+#results        
+  
 
 javascript:
   function filter(){

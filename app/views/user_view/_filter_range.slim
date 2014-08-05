@@ -1,28 +1,21 @@
 -stylesheet "datepicker"
 -javascript "datepicker"
-|FROM DATE:
-input.datepicker#from
-  span.glyphicon.glyphicon-calendar
-|TO DATE
-input.datepicker#to
-  span.glyphicon.glyphicon-calendar
-div
-  |TIME:
-  input#hourFrom type = "number" min="8" max = "22" value = 8
-  |:
-  input#minuteFrom type = "number" min="0" max = "60" value = 0
-div
-  |TIME:
-  input#hourTo type = "number" min="8" max = "22" value = 8
-  |:
-  input#minuteTo type = "number" min="0" max = "60" value = 0
+div.container#data 
+	div.from
+		|От дата:
+		input.datepicker#from
+		  span.glyphicon.glyphicon-calendar
+	div.to
+		|До дата:
+		input.datepicker#to
+		  span.glyphicon.glyphicon-calendar
 
 
 javascript:
   $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
   function getData(){
     return {
-     from:{date:$("#from").val(), hour:($("#hourFrom")).val(), minute:$("#minuteFrom").val()},
-     to:{date:$("#to").val(), hour:($("#hourTo")).val(), minute:$("#minuteTo").val()},
+     from:{date:$("#from").val()},
+     to:{date:$("#to").val()},
      };
   }
