@@ -272,7 +272,22 @@ angular.module('stats').controller('statistics_controller', ['$scope', 'statsSer
     }
     else if (field == 'attack_efficiency')
     {
-      value = 1;
+      var errors = getInt(player_model + ".attack_errors")+getInt(player_model + ".attack_blocks");
+      var total = getInt(player_model +".attack_total");
+
+      value = errors / total;
+      if(total == errors)
+        value = 0;
+      else if(total === 0 && errors > 0)
+        value = 0;
+      else if(total > 0 && errors === 0)
+        value = 100;
+      else if(errors === 0 && total === 0)
+        value = 0;
+      else if(errors > total)
+        value = 0;
+      else value = 100 - parseInt(value * 100);
+
     }
     else if (field == 'reception_efficiency')
     {

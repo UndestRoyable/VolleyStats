@@ -9,6 +9,10 @@ h2 {
 	margin-top:2%;
 	margin-left:2%;
 }
+#tables h2{
+	margin-left:9%;
+}
+
 
 .container table {
 	
@@ -47,7 +51,7 @@ h2 {
 }
 .tabdata{
 	display: none;
-	margin-left:6%;
+	
 
 }
 .tabdata.active{
@@ -70,7 +74,7 @@ table#left.tg tr td input.spectators, .zone, table#right tr td input{
 }
 
 
-#legenda{
+#tables table#legenda{
 	margin-top:45px;
 	margin-left:35.5%;
 	
@@ -103,11 +107,35 @@ h3{
 	margin-right: 33%;
 }
 
+.team_name{
+	display: inline-block;
+
+}
+
+#leftteam{
+	min-width: 40%;
+	max-width: 40%;
+	margin-left:5%;
+	
+}
+#rightteam{
+	
+	float: right;
+}
 
 #scores{
-  margin-left: 45%;
+ 	
+
 }
 
 #scores h2{
   display: inline-block;
+}
+
+#tables table{
+	margin-left:9%;
+}
+
+body>.container, #content>.container {
+	margin-left:2%;
 }

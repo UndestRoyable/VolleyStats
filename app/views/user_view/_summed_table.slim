@@ -1,17 +1,39 @@
 -fields = "zone","points_total","block_points","won_lost","serve_total","serve_errors","serve_aces","reception_total","reception_errors","reception_efficiency","attack_total","attack_errors","attack_blocks","attack_points","attack_efficiency","break_points"
-h2 
+-results = {}
+-score_holder = Struct.new(:player_name,:player_number,:zone,:points_total,:block_points,:won_lost,:serve_total,:serve_errors,\
+:serve_aces,:reception_total,:reception_errors,:reception_efficiency,:attack_total,:attack_errors,:attack_blocks,:attack_points,\
+:attack_efficiency,:break_points)
+-for score in scores do
+   
+    -if(!results.has_key?(score.player_id))
+        -results[score.player_id] = score_holder.new(0,0,"",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+    -results[score.player_id]
+    -for field in fields do
+        -results[score.player_id][field]+=score[field] unless(field == "zone")
+        -results[score.player_id].zone+=score.zone.to_s+"," if (field == "zone")
+    -results[score.player_id].zone = score.zone if(results[score.player_id].zone==0)
+    -results[score.player_id].player_name = score.player_name if(results[score.player_id].player_name==0)
+    -results[score.player_id].player_number = score.player_number if(results[score.player_id].player_number==0)
+
+-set_numbers = scores.length/results.keys.length
+-for result in results.keys do 
+    -for field in fields do
+        -results[result][field]=getEfficiency(field,results[result]) if(field == "reception_efficiency" || field = "attack_efficiency"||field = "attack_efficiency")
+h2
   =team.name
 table.tg
   tr
     th.tg-031e colspan="2" rowspan="2" 
-    th.tg-hgcj Стартира от
+    th.tg-hgcj colspan="#{set_numbers}" Зона 
     th.tg-hgcj colspan="3"  Tочки
     th.tg-hgcj colspan="3"  Сервис
     th.tg-hgcj colspan="3"  Посрещане
     th.tg-hgcj colspan="5"  Атака
     th.tg-e3zv BK&nbsp;
   tr
-    td.tg-031e зона
+    -for i in 1...set_numbers+1 do
+        td.tg-s6z2 
+            = i
     td.tg-s6z2 Oбщо
     td.tg-s6z2 BP
     td.tg-s6z2 W-L
@@ -27,12 +49,19 @@ table.tg
     td.tg-s6z2 Точки
     td.tg-s6z2 Ефективност(%)
     td.tg-s6z2 Общо
-  -for score in scores do
-  tr
-    td.tg-031e
-        =score.player_number
-    td.tg-031e
-        =score.player_name
-    -for field in fields do
-        td.tg-031e 
-            =score[field]
+  -for result in results.keys do
+      tr
+        td.tg-031e
+            =results[result].player_number
+        td.tg-031e
+            =results[result].player_name
+        -for field in fields do
+            -if(field == "zone")
+                -for i in results[result].zone.split(",").select{|x|x.length>0} do
+                    td.tg-031e
+                        =i
+            -else 
+                td.tg-031e 
+                    =results[result][field] 
+
+                        

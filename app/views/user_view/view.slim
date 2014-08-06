@@ -29,12 +29,17 @@ h3 Българска Федерация по Волейбол
 .container
   =stylesheet_link_tag "statistic-table"
   #scores
+    h2#leftteam.team_name 
+      =match.host.name 
+    
     h2
       =host_score
     h2
       |&nbsp&nbsp:&nbsp&nbsp
     h2
       =guest_score
+    h2#rightteam.team_name
+      =match.guest.name
   table#left.tg
     tr
       th.tg-tqq2 Дата/час
@@ -95,7 +100,7 @@ h3 Българска Федерация по Волейбол
         ="#{duration}'"
       -for partial in partials.keys do
         td.tg-d8ej
-          ="#{partial[0]} - #{partial[1]}"
+          =""
       td.tg-m8u4
         ="#{result[0]} - #{result[1]}"
 .tables#tables
@@ -117,12 +122,12 @@ h3 Българска Федерация по Волейбол
 
   
     
-    =render partial: "summed_table", locals:{team:host_team, scores:PlayerSetScore.where(match_set_score_id:sets.map{|x| x.id}, player_id:host_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number") }
-    =render partial: "summed_table", locals:{team:guest_team, scores:PlayerSetScore.where(match_set_score_id:sets.map{|x| x.id}, player_id:guest_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number")}
-      
+  =render partial: "summed_table", locals:{team:host_team, scores:PlayerSetScore.where(match_set_score_id:sets.map{|x| x.id}, player_id:host_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number") }
+  =render partial: "summed_table", locals:{team:guest_team, scores:PlayerSetScore.where(match_set_score_id:sets.map{|x| x.id}, player_id:guest_players.map{|x| x.id}).joins(:player).order("players.number").select("*, players.first_name || ' ' || players.last_name as player_name, players.number as player_number")}
+    
     
 
-  a.navbar-btn.btn-primary.btn href="http://pdfmyurl.com/"  Конвертирай в PDF и изтегли
+  a.navbar-btn.btn-primary.btn href="http://pdfmyurl.com/" target="blank" Конвертирай в PDF и изтегли
 
 
 javascript:
