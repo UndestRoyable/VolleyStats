@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/match-data' =>"statistics#match_data"
   get '/statistics/:match_id' => "statistics#match_statistic"
   
-
+  post '/email' => 'main#create_mail'
   devise_for :scouts, :controller => {:session => 'session'}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

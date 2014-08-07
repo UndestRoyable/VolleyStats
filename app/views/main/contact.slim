@@ -1,6 +1,8 @@
 -stylesheet "contact-style"
 -javascript "contact"
-
+-stylesheet "bootstrapValidator.min"
+-javascript "bootstrapValidator.min"
+-javascript "jquery.validate.min"
 .well.well-sm style="text-align:center" 
   h3 Свържете се с нас!
 .container.col-md-8
@@ -13,7 +15,7 @@
         .input-group
           span.input-group-addon
             i.glyphicon.glyphicon-user
-          input.form-control name="name" placeholder="Име" type="text" 
+          input#name.form-control name="name" placeholder="Име" type="text" 
     .form-group
       label.control-label Имейл
       .controls
@@ -27,7 +29,7 @@
         .input-group
           span.input-group-addon
             i.glyphicon.glyphicon-list
-          select.form-control.selectpicker.show-tick name="cate" 
+          select#category.form-control.selectpicker.show-tick name="category" 
             option Въпрос
             option Препоръка
     .form-group
@@ -36,7 +38,7 @@
         .input-group
           span.input-group-addon
             i.glyphicon.glyphicon-pencil
-          textarea.form-control cols="78" name="msg" placeholder=("Въведете вашето съобщение тук") rows="4" 
+          textarea#body.form-control cols="78" name="body" placeholder=("Въведете вашето съобщение тук") rows="4" 
     .controls style=("margin-left: 80%;") 
-      button#mybtn.btn.btn-primary type="submit"  Изпрати съобщението
+      a#mybtn.btn.btn-primary onclick="submitMail(); return false"  Изпрати съобщението
  
