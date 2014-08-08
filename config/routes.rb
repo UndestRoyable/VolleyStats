@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/about-us' =>"main#about"
 
+  get '/news' => "main#news"
+
   get '/contact-us' =>"main#contact"
 
   get '/match-data' =>"statistics#match_data"

@@ -39,6 +39,12 @@ html
             a href="/about-us"
               span.glyphicon.glyphicon-info-sign style="#{margin}"
               | За нас
+
+          li
+            a href="/news"
+              span.glyphicon.glyphicon-list-alt style="#{margin}"
+              | Новини
+
           li.dropdown
             a.dropdown-toggle data-toggle="dropdown" href="#"
               span.glyphicon.glyphicon-stats style="#{margin}"
@@ -46,11 +52,18 @@ html
               b.caret
             ul.dropdown-menu
               li
-                a href="/view/filter/team"  На отбор
+
+                a href="/view/filter/team"  
+                  |На отбор 
+                  
+
               li
-                a href="/view/filter/player"  На играч
+                a href="/view/filter/player"  
+                  |На играч
               li
-                a href="/view/filter/range"  За период от време
+                a href="/view/filter/range"  
+                  |За период от време
+
           li
             -if(current_scout.nil?)
               a href="/login"
@@ -73,7 +86,7 @@ html
   .navbar.navbar-default.navbar-fixed-bottom
     .container2
      p.navbar-text.pull-left Copyright 2014 © Мирослав Маринов, Илия Никушев. Всички права запазени.
-     a.navbar-btn.btn-primary.btn.pull-right href="http://goo.gl/D4HZSz"  Намерете ни във Facebook
+     a.navbar-btn.btn-primary.btn.pull-right href="https://www.facebook.com/volleystats"  Намерете ни във Facebook
 
 
 

@@ -7,6 +7,10 @@ class MainController < ApplicationController
 
   def contact
   end
+
+  def news
+  end
+  
   skip_before_filter  :verify_authenticity_token
   def create_mail
   
