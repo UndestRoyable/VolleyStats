@@ -83,7 +83,7 @@ class StatisticsController < ApplicationController
     guest.save
     current_scout.active_match_id = nil
     current_scout.save
-
+    News.create(match:match, teams:"#{host.team.name} vs #{guest.team.name}")
     render json:{id:"view/#{match.id}"}
   end
 

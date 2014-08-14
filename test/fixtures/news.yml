@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 
+  teams: MyString
+
+two:
+  match_id: 
+  teams: MyString

@@ -1,14 +1,22 @@
 -stylesheet "news"
+-stylesheet "styles"
 
 doctype html
 html
   head
     title VolleyStats
     meta content="width=device-width, initial-scale=1.0" name="viewport" 
-      meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" 
-        link href="css/bootstrap.min.css" rel="stylesheet" 
-          link href="contact-style.css" rel="stylesheet" type="text/css" 
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" 
+    =stylesheet_link_tag "css/bootstrap.min.css"
+    =stylesheet_link_tag "contact-style.css"
   body
+  ul
+    =image_tag "news.jpg"
 
-    ul
-      =image_tag "under_construction.png"
+  -for m in News.all do
+    a href= "/view/#{m.id}"
+      h4
+        -date = m.created_at.to_datetime#DateTime.strptime(m.created_at, "%d-%m-%Y")
+        ="Излезе статистиката от мача #{m.teams} на #{date.day}.#{date.month}.#{date.year} г."
+
+div#clear style ="height:75px"

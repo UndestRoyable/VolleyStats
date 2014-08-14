@@ -52,3 +52,13 @@ Licence: <a href="http://www.os-templates.com/template-terms">Website Template L
 {
 list-style-type: none;
 }
+
+.container {
+  padding-bottom: 150px;
+}
+
+
+#clear{
+  height: 150px;
+  width:1px;
+}

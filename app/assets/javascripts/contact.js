@@ -11,7 +11,7 @@ function sendMail (){
 
     function submitMail (){
       sendMail();
-      alert ("Sent")
+      alert ("Вашето съобщение е изпратено! ")
 
   }
     

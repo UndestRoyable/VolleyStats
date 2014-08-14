@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801105641) do
+ActiveRecord::Schema.define(version: 20140814073759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,12 @@ ActiveRecord::Schema.define(version: 20140801105641) do
     t.integer  "set3_break3"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "set4_break1"
+    t.integer  "set4_break2"
+    t.integer  "set4_break3"
+    t.integer  "set5_break1"
+    t.integer  "set5_break2"
+    t.integer  "set5_break3"
   end
 
   add_index "match_guests", ["match_id"], name: "index_match_guests_on_match_id", using: :btree
@@ -116,6 +122,12 @@ ActiveRecord::Schema.define(version: 20140801105641) do
     t.integer  "set3_break3"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "set4_break1"
+    t.integer  "set4_break2"
+    t.integer  "set4_break3"
+    t.integer  "set5_break1"
+    t.integer  "set5_break2"
+    t.integer  "set5_break3"
   end
 
   add_index "match_hosts", ["match_id"], name: "index_match_hosts_on_match_id", using: :btree
@@ -138,6 +150,7 @@ ActiveRecord::Schema.define(version: 20140801105641) do
     t.integer  "guest_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "duration"
   end
 
   add_index "match_set_scores", ["match_id"], name: "index_match_set_scores_on_match_id", using: :btree
@@ -158,6 +171,15 @@ ActiveRecord::Schema.define(version: 20140801105641) do
 
   add_index "matches", ["match_guest_id"], name: "index_matches_on_match_guest_id", using: :btree
   add_index "matches", ["match_host_id"], name: "index_matches_on_match_host_id", using: :btree
+
+  create_table "news", force: true do |t|
+    t.integer  "match_id"
+    t.string   "teams"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news", ["match_id"], name: "index_news_on_match_id", using: :btree
 
   create_table "player_set_scores", force: true do |t|
     t.integer  "match_set_score_id"
@@ -243,6 +265,7 @@ ActiveRecord::Schema.define(version: 20140801105641) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "active_match_id"
   end
 
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true, using: :btree
