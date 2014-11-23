@@ -48,3 +48,5 @@ gem 'prawn'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'angularjs-rails'
+
+gem 'rails_12factor', group: :production
