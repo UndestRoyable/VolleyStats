@@ -12,4 +12,6 @@
  *
  *= require select2 
  *= require about-us
+ *= require contact-style
+ *= require bootstrapValidator.min
  */

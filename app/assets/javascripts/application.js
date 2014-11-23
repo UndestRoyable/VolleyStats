@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require contact
+//= require bootstrapValidator.min
+//= require jquery.validate.min
 
 //= require angular
 //= require_directory ./angular
@@ -17,5 +20,6 @@
 //= require_directory ./angular/controllers
 //=require select2.min 
 //=require select2_locale_bg
+
 
 $(document).ready(function() { $("select").select2({ dropdownAutoWidth : true}); });
