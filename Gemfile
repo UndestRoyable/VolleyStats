@@ -51,4 +51,6 @@ gem 'angularjs-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'therubyracer',  platforms: :ruby
+
 ruby "1.9.3"
