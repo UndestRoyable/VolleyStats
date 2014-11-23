@@ -1,4 +1,5 @@
 /*
+ *= require css/bootstrap.min
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -11,7 +12,9 @@
  * file per style scope.
  *
  *= require select2 
- *= require about-us
+ *= require styles/about-us
  *= require contact-style
  *= require bootstrapValidator.min
+ 
+ *= require application
  */

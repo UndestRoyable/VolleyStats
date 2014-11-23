@@ -1,23 +1,16 @@
 DOCTYPE html
-- is_scout_page = params[:controller] != "main" && params[:controller] != "user_view" && current_scout.present?
-- is_required = params[:filter_name] == "player" && params[:controller] == "user_view"||params[:filter_name]== "team"
 html
   head
     title
       = "VolleyStats:" + yield(:title)
-    = stylesheet_link_tag "css/bootstrap.min"
-    = javascript_include_tag "jquery"
-    = javascript_include_tag "bootstrap.min"
-    = javascript_include_tag "extentions"
-    -if(is_scout_page || is_required)
-      = javascript_include_tag "application"
-      = stylesheet_link_tag "application"
-    = yield(:stylesheets)
-    = yield(:javascripts)
+    =javascript_include_tag "application"
+    =stylesheet_link_tag "application"
+    /= yield(:stylesheets)
+    /= yield(:javascripts)
     = csrf_meta_tags
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
-  -if(is_scout_page || is_required)
+  -if(@angular_app.present?)
     body[ng-app="#{@angular_app}" ng-controller="#{@angular_controller}"]
   -else
     body
