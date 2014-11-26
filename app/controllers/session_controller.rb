@@ -1,5 +1,6 @@
 class SessionController < Devise::SessionsController
   skip_before_filter  :verify_authenticity_token
+  skip_before_filter :authenticate_user!, :only => :create
   def login
     if current_scout != nil
       redirect_to(after_sign_in_path_for(nil))
