@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   #post "url" => "controller#method"
 
   
-  get 'login' => "session#login", :as => "login"
-  post 'create' => 'session#create', :as => 'create'
-  get 'logout' => 'session#destroy', :as => 'logout'
+  get '/login' => "session#login", :as => "login"
+  post '/create' => 'session#create', :as => 'create'
+  get '/logout' => 'session#destroy', :as => 'logout'
   
 
   get '/view/:match_id' =>"user_view#view"
