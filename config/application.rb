@@ -17,6 +17,7 @@ module VolleyStats
   config.assets.precompile += Dir.glob("app/assets/**/*.css").map{|x| x.gsub("app/assets/stylesheets/","")}
   config.assets.precompile += Dir.glob("app/assets/**/*.js").map{|x| x.gsub("app/assets/javascripts/","")}
   config.assets.precompile += Dir.glob("app/assets/images/**/*").map{|x| x.gsub("app/assets/images/","")}
+   config.assets.precompile += Dir.glob("app/assets/stylesheets/fonts/**/*").map{|x| x.gsub("app/assets/stylesheets/fonts/","")}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
