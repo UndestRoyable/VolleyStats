@@ -13,7 +13,7 @@ module VolleyStats
   config.action_mailer.raise_delivery_errors = true
   config.assets.initialize_on_precompile = false
   config.assets.enabled = true
-  config.assets.precompile = []
+  config.assets.precompile = ["css/bootstrap.min.css","styles.css", "select2.css", "signin.css", "match-data.css", "datepicker.css", "jquery-ui.css", "statistic.css", "filter.css", "contact-style.css", "bootstrapValidator.min.css", "application.css"]
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
