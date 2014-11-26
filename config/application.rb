@@ -12,6 +12,8 @@ module VolleyStats
       config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.assets.initialize_on_precompile = false
+  config.assets.enabled = false
+  config.assets.precompile = []
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
