@@ -21,11 +21,11 @@ Rails.application.routes.draw do
   #get "url" => "controller#method"
   #post "url" => "controller#method"
 
-  devise_scope :scout do
-    get 'login' => "session#login", :as => "login"
-    post 'create' => 'session#create', :as => 'create'
-    get 'logout' => 'session#destroy', :as => 'logout'
-  end
+  
+  get 'login' => "session#login", :as => "login"
+  post 'create' => 'session#create', :as => 'create'
+  get 'logout' => 'session#destroy', :as => 'logout'
+  
 
   get '/view/:match_id' =>"user_view#view"
   get '/view/filter/:filter_name' =>"user_view#filter"
