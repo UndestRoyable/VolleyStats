@@ -25,6 +25,12 @@ Rails.application.routes.draw do
   get '/login' => "session#login", :as => "login"
   post '/create' => 'session#create', :as => 'create'
   get '/logout' => 'session#destroy', :as => 'logout'
+
+  devise_scope :scout do
+    #get 'login' => "session#login", :as => "login"
+    #post 'create' => 'session#create', :as => 'create'
+   # get 'logout' => 'session#destroy', :as => 'logout'
+  end
   
 
   get '/view/:match_id' =>"user_view#view"
