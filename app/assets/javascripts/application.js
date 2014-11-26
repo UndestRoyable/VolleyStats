@@ -11,13 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui.min
 //= require bootstrap.min
 
 //= require contact
 //= require bootstrapValidator.min
 //= require jquery.validate.min
-
-
+//= require datepicker
+//= require login
+//= require jquery.serializejson.min
 //= require extentions
 //= require application
 //= require angular

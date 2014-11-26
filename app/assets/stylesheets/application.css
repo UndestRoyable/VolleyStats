@@ -12,7 +12,17 @@
  * file per style scope.
  *
  *= require select2 
- *= require styles/about-us
+ 
+ --------------------------------
+ *= require styles
+ *= require news
+ *= require signin
+ *= require match-data
+ *= require datepicker
+ *= require jquery-ui
+ *= require statistic
+ *= require filter
+ --------------------------------------------
  *= require contact-style
  *= require bootstrapValidator.min
  

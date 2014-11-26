@@ -15,11 +15,23 @@ background:url('bg.jpg');
 	color:white;
 }
 
+.container #statements p
+{
+  color: black;
+}
+
 .container a{
 	color:white;
 	border-color:white;
 	border-width: 2px;
 	background-color:transparent; 
+}
+
+.container #button a{
+  color: white;
+  border-color: #428bca;
+  background-color: #428bca;
+
 }
 .container2 {
 	padding-left: 105px;
